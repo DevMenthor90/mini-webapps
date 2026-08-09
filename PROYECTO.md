@@ -89,7 +89,7 @@ ganan más rápido que términos genéricos saturados por marcas grandes).
 3. ✅ **Cuota de préstamo / crédito** — CONSTRUIDA (alta demanda en LatAm, créditos de consumo, vivienda)
 4. ✅ **Split bill (dividir cuenta + propina)** — CONSTRUIDA (uso constante, viral en grupos)
 5. ✅ **Peso ideal de mascotas (perro/gato)** — CONSTRUIDA (rangos por tamaño de raza, orientativo)
-6. ✅ **Conversor de divisas** — CONSTRUIDA (API Frankfurter.app, datos del BCE, sin API key)
+6. ✅ **Conversor de divisas** — CONSTRUIDA (API exchangerate-api.com free tier, incluye COP, sin API key)
 7. ✅ **Radio online gratis** — CONSTRUIDA (API Radio-Browser, directorio abierto por país)
 8. ✅ **TV en vivo gratis** — CONSTRUIDA (solo canales oficiales vía YouTube Live embed, ver política de contenido abajo)
 9. ⏳ **Conversor de unidades todo-en-uno** — uso diario, no confirmada como prioridad aún
@@ -146,13 +146,17 @@ llamadas de red). Reglas replicadas en las tres:
 - Debounce (~400ms) en inputs que disparan fetch en cada tecla.
 
 ### Conversor de divisas (`/conversor-divisas/`)
-- API: [Frankfurter.app](https://www.frankfurter.app/) — gratis, sin API key,
-  datos de referencia del Banco Central Europeo (BCE).
-- **Importante:** Frankfurter solo cubre ~30 monedas "mayores" (las que el BCE
-  publica). NO incluye COP (peso colombiano) ni la mayoría de monedas
-  latinoamericanas/emergentes. Los selects se pueblan dinámicamente desde
-  `/currencies`, así que solo aparecen las monedas realmente soportadas.
-  Default: USD → EUR.
+- API: [open.er-api.com](https://www.exchangerate-api.com/docs/free) (tier
+  gratuito de exchangerate-api.com) — gratis, sin API key, ~166 monedas,
+  incluye COP y el resto de monedas latinoamericanas. Actualiza cada ~24h.
+- Endpoint: `GET /v6/latest/{BASE}` devuelve todas las tasas contra esa base
+  en un solo request (no soporta pedir un par `from/to` directo como
+  Frankfurter, así que si el usuario cambia la moneda de origen se vuelve a
+  pedir el endpoint con la nueva base). Nombres de moneda para el select
+  vienen de un diccionario `CURRENCY_NAMES` local (la API no expone nombres).
+  Default: USD → COP.
+- (Se evaluó Frankfurter.app/BCE primero pero solo cubre ~30 monedas
+  "mayores" y no incluye COP — se descartó por eso.)
 
 ### Radio online (`/radio-online/`)
 - API: [Radio-Browser](https://www.radio-browser.info/) — directorio
@@ -225,7 +229,7 @@ en español e inglés — no hay un sistema compartido entre páginas todavía (
 5. ✅ Calculadora de cuota de préstamo — donut chart con conic-gradient, amortización francesa
 6. ✅ Split bill (dividir cuenta + propina) — fichas/avatares dinámicos por persona
 7. ✅ Peso ideal de mascotas (perro/gato) — gauge por tamaño de raza, orientativo
-8. ✅ Conversor de divisas — API Frankfurter.app (BCE), tarjetas de moneda con bandera emoji + flecha animada
+8. ✅ Conversor de divisas — API exchangerate-api.com (incluye COP), tarjetas de moneda con bandera emoji + flecha animada
 9. ✅ Radio online gratis — API Radio-Browser, ecualizador CSS animado en la estación sonando
 10. ✅ TV en vivo gratis — solo canales oficiales vía YouTube Live embed (NASA TV, France 24, DW News, euronews)
 11. ✅ Hub principal (`index.html`) con tarjetas a las 8 herramientas, todas "Disponible"
