@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ===== SEO: Primary meta ===== -->
+<title id="doc-title">Calculadora de IMC y Calorías (TDEE) Gratis | 2026</title>
+<meta id="meta-desc" name="description" content="Calcula tu IMC y tu gasto calórico diario (TDEE) gratis. Fórmula Mifflin-St Jeor, clasificación de peso y nivel de actividad. Sin registro.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Herramientas Financieras Gratis">
+<link id="canonical" rel="canonical" href="https://mini-webapps-six.vercel.app/imc-calorias/">
+
+<link rel="alternate" hreflang="es" href="https://mini-webapps-six.vercel.app/imc-calorias/">
+<link rel="alternate" hreflang="en" href="https://mini-webapps-six.vercel.app/imc-calorias/">
+<link rel="alternate" hreflang="x-default" href="https://mini-webapps-six.vercel.app/imc-calorias/">
+
+<meta id="og-title" property="og:title" content="Calculadora de IMC y Calorías (TDEE) Gratis">
+<meta id="og-desc" property="og:description" content="Calcula tu índice de masa corporal y tu gasto calórico diario con la fórmula Mifflin-St Jeor. Gratis, sin registro.">
+<meta property="og:type" content="website">
+<meta id="og-url" property="og:url" content="https://mini-webapps-six.vercel.app/imc-calorias/">
+<meta property="og:image" content="https://mini-webapps-six.vercel.app/og-image.png">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta id="og-site" property="og:site_name" content="Herramientas Financieras Gratis">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta id="tw-title" name="twitter:title" content="Calculadora de IMC y Calorías (TDEE) Gratis">
+<meta id="tw-desc" name="twitter:description" content="Calcula tu IMC y tu gasto calórico diario. Gratis y sin registro.">
+
+<meta name="theme-color" content="#0F1B2B">
+
+<script type="application/ld+json" id="schema-app">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de IMC y Calorías",
+  "url": "https://mini-webapps-six.vercel.app/imc-calorias/",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Calculadora gratuita de índice de masa corporal (IMC) y gasto calórico diario total (TDEE) con la fórmula Mifflin-St Jeor.",
+  "inLanguage": ["es", "en"]
+}
+</script>
+<script type="application/ld+json" id="schema-faq">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo se calcula el IMC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El IMC se calcula dividiendo el peso en kilogramos entre la altura en metros al cuadrado (IMC = peso / altura²). Es un indicador general, no diagnóstico médico."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es el TDEE y cómo se calcula?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El TDEE (Total Daily Energy Expenditure) es el gasto calórico total diario. Se calcula obteniendo tu tasa metabólica basal (BMR) con la fórmula Mifflin-St Jeor y multiplicándola por un factor según tu nivel de actividad física."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El IMC es preciso para todas las personas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No del todo. El IMC no distingue entre masa muscular y grasa, por lo que puede sobreestimar el riesgo en personas muy musculosas o subestimarlo en personas con poca masa muscular. Es una referencia general, no un diagnóstico."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#0F1B2B;
+    --paper:#F5EFE3;
+    --gold:#C9A961;
+    --sage:#4A7C6E;
+    --terracotta:#8B4B3B;
+    --paper-dim:#E8DFCC;
+    --ink-soft:rgba(245,239,227,0.62);
+    --ink-faint:rgba(245,239,227,0.32);
+    --space-xs:8px; --space-sm:14px; --space-md:22px; --space-lg:32px; --space-xl:48px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    padding:clamp(16px,4vw,24px) 16px 60px;
+    line-height:1.5;
+  }
+
+  .wrap{max-width:960px; margin:0 auto;}
+
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .home-link{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    color:var(--ink-faint);
+    text-decoration:none;
+    transition:color 0.15s ease;
+  }
+  .home-link:hover{color:var(--gold);}
+
+  .lang-switch{display:flex; justify-content:flex-end; gap:4px;}
+  .lang-btn{
+    background:none;
+    border:1px solid rgba(245,239,227,0.16);
+    color:var(--ink-soft);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    padding:6px 12px;
+    border-radius:3px;
+    cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .lang-btn.active{background:var(--gold); color:var(--ink); border-color:var(--gold); font-weight:700;}
+  .lang-btn:not(.active):hover{border-color:var(--gold); color:var(--gold);}
+
+  header{text-align:center; padding:clamp(20px,5vw,32px) 0 clamp(28px,6vw,40px);}
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(28px,6.5vw,52px);
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+  h1 em{font-style:italic; font-weight:300; color:var(--gold);}
+  .sub{color:var(--ink-soft); max-width:480px; margin:16px auto 0; font-size:clamp(14px,3.2vw,15px);}
+
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,3vw,28px);}
+  @media (max-width:760px){.grid{grid-template-columns:1fr;}}
+
+  .panel{
+    background:rgba(245,239,227,0.04);
+    border:1px solid rgba(245,239,227,0.1);
+    border-radius:4px;
+    padding:clamp(20px,4vw,28px);
+  }
+
+  .field{margin-bottom:22px;}
+  .field:last-child{margin-bottom:0;}
+  label{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+    font-weight:500;
+    gap:8px;
+  }
+  label .val{font-family:'Space Mono',monospace; color:var(--gold); font-size:13px; text-align:right; white-space:nowrap;}
+
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+
+  .num-input{
+    display:flex;
+    align-items:center;
+    background:rgba(245,239,227,0.05);
+    border:1px solid rgba(245,239,227,0.14);
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .num-input span{
+    padding:12px;
+    font-family:'Space Mono',monospace;
+    color:var(--ink-faint);
+    font-size:14px;
+    border-right:1px solid rgba(245,239,227,0.1);
+    flex-shrink:0;
+  }
+  .num-input input[type="number"]{
+    flex:1;
+    min-width:0;
+    background:none;
+    border:none;
+    outline:none;
+    color:var(--paper);
+    font-family:'Space Mono',monospace;
+    font-size:16px;
+    padding:12px;
+    width:100%;
+  }
+
+  select{
+    width:100%;
+    background:rgba(245,239,227,0.05);
+    border:1px solid rgba(245,239,227,0.14);
+    border-radius:3px;
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    padding:12px;
+    outline:none;
+    cursor:pointer;
+    -webkit-appearance:none;
+    appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A961'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+  }
+  select option{background:var(--ink); color:var(--paper);}
+
+  .result-panel{display:flex; flex-direction:column;}
+  .result-label{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:6px;
+  }
+  .result-figure{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(30px,7vw,48px);
+    color:var(--gold);
+    letter-spacing:-0.01em;
+    line-height:1;
+    margin-bottom:6px;
+    word-break:break-word;
+  }
+  .result-tag{
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    margin-bottom:24px;
+  }
+
+  .breakdown{display:flex; flex-direction:column; gap:10px; margin-bottom:24px;}
+  .b-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    padding-bottom:10px;
+    border-bottom:1px solid rgba(245,239,227,0.08);
+    gap:8px;
+  }
+  .b-row .b-label{color:var(--ink-soft);}
+  .b-row .b-val{font-family:'Space Mono',monospace; color:var(--paper); text-align:right;}
+
+  /* ---- IMC gauge (thermometer) ---- */
+  .gauge-wrap{flex:1; display:flex; flex-direction:column; justify-content:flex-end; min-height:120px;}
+  .gauge-track{
+    position:relative;
+    height:14px;
+    border-radius:7px;
+    overflow:visible;
+    display:flex;
+    background:linear-gradient(to right,
+      var(--terracotta) 0%, var(--terracotta) 18.5%,
+      var(--sage) 18.5%, var(--sage) 25%,
+      var(--gold) 25%, var(--gold) 30%,
+      var(--terracotta) 30%, var(--terracotta) 100%);
+  }
+  .gauge-marker{
+    position:absolute;
+    top:-7px;
+    width:4px;
+    height:28px;
+    background:var(--paper);
+    border-radius:2px;
+    transform:translateX(-50%);
+    transition:left 0.5s cubic-bezier(.16,1,.3,1);
+    box-shadow:0 0 0 1px var(--ink);
+  }
+  .gauge-scale{
+    display:flex;
+    justify-content:space-between;
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--ink-faint);
+    margin-top:8px;
+  }
+  .chart-caption{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--ink-faint);
+    text-align:center;
+    margin-top:16px;
+    letter-spacing:0.04em;
+  }
+
+  .seo-content{margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid rgba(245,239,227,0.08);}
+  .seo-content h2{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(20px,4vw,26px); margin-bottom:14px; color:var(--paper);}
+  .seo-content p{color:var(--ink-soft); font-size:14px; max-width:680px; margin-bottom:16px;}
+  .faq-item{margin-bottom:20px;}
+  .faq-item h3{font-size:15px; font-weight:600; margin-bottom:6px; color:var(--paper);}
+  .faq-item p{margin-bottom:0; font-size:13.5px;}
+
+  footer{text-align:center; margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid rgba(245,239,227,0.08);}
+  .cta{font-size:14px; color:var(--ink-soft); margin-bottom:16px; max-width:420px; margin-left:auto; margin-right:auto;}
+  .coffee-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--gold);
+    color:var(--ink);
+    font-weight:600;
+    font-size:14px;
+    padding:14px 26px;
+    border-radius:3px;
+    text-decoration:none;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+    min-height:44px;
+  }
+  .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
+  .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:20px;}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  @media (prefers-reduced-motion:reduce){
+    .gauge-marker{transition:none;}
+    .coffee-btn{transition:none;}
+  }
+
+  @media (max-width:380px){
+    .panel{padding:16px;}
+    .num-input span{padding:10px 8px; font-size:13px;}
+    .num-input input[type="number"]{padding:10px 8px;}
+    .field-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="/" class="home-link" data-i18n="home_link">← Todas las herramientas</a>
+    <div class="lang-switch" role="group" aria-label="Language selector">
+      <button class="lang-btn" data-lang="es" id="btn-es">ES</button>
+      <button class="lang-btn" data-lang="en" id="btn-en">EN</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="eyebrow" data-i18n="eyebrow">IMC y calorías</div>
+    <h1 data-i18n-html="title">Conoce tu <em>IMC</em><br>y tu gasto calórico diario</h1>
+    <p class="sub" data-i18n="subtitle">Calcula tu índice de masa corporal y cuántas calorías necesitas al día según tu nivel de actividad.</p>
+  </header>
+
+  <main>
+  <div class="grid">
+    <section class="panel" aria-label="Calculator inputs">
+      <div class="field-row">
+        <div class="field">
+          <label for="peso"><span data-i18n="lbl_peso">Peso</span> <span class="val" id="v-peso">70 kg</span></label>
+          <div class="num-input">
+            <input type="number" id="peso" value="70" min="1" max="400" step="0.5" inputmode="decimal">
+            <span>kg</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="altura"><span data-i18n="lbl_altura">Altura</span> <span class="val" id="v-altura">170 cm</span></label>
+          <div class="num-input">
+            <input type="number" id="altura" value="170" min="50" max="250" step="1" inputmode="decimal">
+            <span>cm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="edad"><span data-i18n="lbl_edad">Edad</span> <span class="val" id="v-edad">30</span></label>
+          <div class="num-input">
+            <input type="number" id="edad" value="30" min="15" max="100" step="1" inputmode="numeric">
+            <span data-i18n="unit_years">años</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="sexo" data-i18n="lbl_sexo">Sexo</label>
+          <select id="sexo">
+            <option value="m" data-i18n="sexo_m">Hombre</option>
+            <option value="f" data-i18n="sexo_f">Mujer</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="actividad" data-i18n="lbl_actividad">Nivel de actividad</label>
+        <select id="actividad">
+          <option value="1.2" data-i18n="act_sedentario">Sedentario (poco o nada de ejercicio)</option>
+          <option value="1.375" data-i18n="act_ligero">Ligero (1-3 días/semana)</option>
+          <option value="1.55" selected data-i18n="act_moderado">Moderado (3-5 días/semana)</option>
+          <option value="1.725" data-i18n="act_activo">Activo (6-7 días/semana)</option>
+          <option value="1.9" data-i18n="act_muy_activo">Muy activo (entrenamiento intenso a diario)</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="panel result-panel" aria-label="Results" aria-live="polite">
+      <div class="result-label" data-i18n="result_label">Tu IMC</div>
+      <div class="result-figure" id="resultado">0.0</div>
+      <div class="result-tag" id="categoria">—</div>
+
+      <div class="breakdown">
+        <div class="b-row">
+          <span class="b-label" data-i18n="lbl_bmr">Tasa metabólica basal (BMR)</span>
+          <span class="b-val" id="v-bmr">0 kcal</span>
+        </div>
+        <div class="b-row">
+          <span class="b-label" data-i18n="lbl_tdee">Gasto calórico diario (TDEE)</span>
+          <span class="b-val" id="v-tdee">0 kcal</span>
+        </div>
+      </div>
+
+      <div class="gauge-wrap">
+        <div class="gauge-track" role="img" aria-label="Gauge de IMC">
+          <div class="gauge-marker" id="gauge-marker" style="left:0%"></div>
+        </div>
+        <div class="gauge-scale">
+          <span>15</span><span>18.5</span><span>25</span><span>30</span><span>40+</span>
+        </div>
+      </div>
+      <div class="chart-caption" data-i18n="chart_caption">RANGO DE IMC — BAJO PESO / NORMAL / SOBREPESO / OBESIDAD</div>
+    </section>
+  </div>
+
+  <section class="seo-content">
+    <h2 data-i18n="seo_h2_1">¿Qué es el IMC y para qué sirve?</h2>
+    <p data-i18n="seo_p_1">El índice de masa corporal (IMC) es una medida que relaciona tu peso y tu altura para estimar si te encuentras en un rango de peso saludable. Se calcula dividiendo el peso en kilogramos entre la altura en metros al cuadrado. Es una referencia rápida y general, no un diagnóstico médico.</p>
+
+    <div class="faq-item">
+      <h3 data-i18n="faq_q1">¿Cómo se calcula el IMC?</h3>
+      <p data-i18n="faq_a1">El IMC se calcula dividiendo el peso en kilogramos entre la altura en metros al cuadrado (IMC = peso / altura²). Luego se clasifica en rangos: bajo peso, normal, sobrepeso u obesidad.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq_q2">¿Qué es el TDEE y cómo se calcula?</h3>
+      <p data-i18n="faq_a2">El TDEE (gasto calórico diario total) se calcula obteniendo tu tasa metabólica basal (BMR) con la fórmula Mifflin-St Jeor y multiplicándola por un factor según tu nivel de actividad física, desde sedentario hasta muy activo.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq_q3">¿El IMC es preciso para todas las personas?</h3>
+      <p data-i18n="faq_a3">No del todo. El IMC no distingue entre masa muscular y grasa, por lo que puede sobreestimar el riesgo en personas muy musculosas o subestimarlo en personas con poca masa muscular. Úsalo como referencia general, no como diagnóstico.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <p class="cta" data-i18n="cta_text">¿Te sirvió esta calculadora? Si te ahorró tiempo, invítame un café.</p>
+    <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
+    <p class="footnote" data-i18n="disclaimer">Herramienta educativa. No constituye asesoría médica ni nutricional. Consulta a un profesional de la salud.</p>
+  </footer>
+
+</div>
+
+<script>
+  const translations = {
+    es: {
+      home_link: "← Todas las herramientas",
+      eyebrow: "IMC y calorías",
+      subtitle: "Calcula tu índice de masa corporal y cuántas calorías necesitas al día según tu nivel de actividad.",
+      lbl_peso: "Peso",
+      lbl_altura: "Altura",
+      lbl_edad: "Edad",
+      unit_years: "años",
+      lbl_sexo: "Sexo",
+      sexo_m: "Hombre",
+      sexo_f: "Mujer",
+      lbl_actividad: "Nivel de actividad",
+      act_sedentario: "Sedentario (poco o nada de ejercicio)",
+      act_ligero: "Ligero (1-3 días/semana)",
+      act_moderado: "Moderado (3-5 días/semana)",
+      act_activo: "Activo (6-7 días/semana)",
+      act_muy_activo: "Muy activo (entrenamiento intenso a diario)",
+      result_label: "Tu IMC",
+      lbl_bmr: "Tasa metabólica basal (BMR)",
+      lbl_tdee: "Gasto calórico diario (TDEE)",
+      chart_caption: "RANGO DE IMC — BAJO PESO / NORMAL / SOBREPESO / OBESIDAD",
+      cat_bajo: "Bajo peso",
+      cat_normal: "Peso normal",
+      cat_sobrepeso: "Sobrepeso",
+      cat_obesidad: "Obesidad",
+      seo_h2_1: "¿Qué es el IMC y para qué sirve?",
+      seo_p_1: "El índice de masa corporal (IMC) es una medida que relaciona tu peso y tu altura para estimar si te encuentras en un rango de peso saludable. Se calcula dividiendo el peso en kilogramos entre la altura en metros al cuadrado. Es una referencia rápida y general, no un diagnóstico médico.",
+      faq_q1: "¿Cómo se calcula el IMC?",
+      faq_a1: "El IMC se calcula dividiendo el peso en kilogramos entre la altura en metros al cuadrado (IMC = peso / altura²). Luego se clasifica en rangos: bajo peso, normal, sobrepeso u obesidad.",
+      faq_q2: "¿Qué es el TDEE y cómo se calcula?",
+      faq_a2: "El TDEE (gasto calórico diario total) se calcula obteniendo tu tasa metabólica basal (BMR) con la fórmula Mifflin-St Jeor y multiplicándola por un factor según tu nivel de actividad física, desde sedentario hasta muy activo.",
+      faq_q3: "¿El IMC es preciso para todas las personas?",
+      faq_a3: "No del todo. El IMC no distingue entre masa muscular y grasa, por lo que puede sobreestimar el riesgo en personas muy musculosas o subestimarlo en personas con poca masa muscular. Úsalo como referencia general, no como diagnóstico.",
+      cta_text: "¿Te sirvió esta calculadora? Si te ahorró tiempo, invítame un café.",
+      cta_btn: "Invítame un café",
+      disclaimer: "Herramienta educativa. No constituye asesoría médica ni nutricional. Consulta a un profesional de la salud.",
+      docTitle: "Calculadora de IMC y Calorías (TDEE) Gratis | 2026",
+      docDesc: "Calcula tu IMC y tu gasto calórico diario (TDEE) gratis. Fórmula Mifflin-St Jeor, clasificación de peso y nivel de actividad. Sin registro.",
+      titleHtml: "Conoce tu <em>IMC</em><br>y tu gasto calórico diario",
+      locale: "es-CO",
+      htmlLang: "es"
+    },
+    en: {
+      home_link: "← All tools",
+      eyebrow: "BMI and calories",
+      subtitle: "Calculate your body mass index and how many calories you need per day based on your activity level.",
+      lbl_peso: "Weight",
+      lbl_altura: "Height",
+      lbl_edad: "Age",
+      unit_years: "years",
+      lbl_sexo: "Sex",
+      sexo_m: "Male",
+      sexo_f: "Female",
+      lbl_actividad: "Activity level",
+      act_sedentario: "Sedentary (little or no exercise)",
+      act_ligero: "Light (1-3 days/week)",
+      act_moderado: "Moderate (3-5 days/week)",
+      act_activo: "Active (6-7 days/week)",
+      act_muy_activo: "Very active (intense daily training)",
+      result_label: "Your BMI",
+      lbl_bmr: "Basal metabolic rate (BMR)",
+      lbl_tdee: "Total daily energy expenditure (TDEE)",
+      chart_caption: "BMI RANGE — UNDERWEIGHT / NORMAL / OVERWEIGHT / OBESITY",
+      cat_bajo: "Underweight",
+      cat_normal: "Normal weight",
+      cat_sobrepeso: "Overweight",
+      cat_obesidad: "Obesity",
+      seo_h2_1: "What is BMI and what is it for?",
+      seo_p_1: "Body mass index (BMI) relates your weight and height to estimate whether you fall within a healthy weight range. It's calculated by dividing weight in kilograms by height in meters squared. It's a quick, general reference, not a medical diagnosis.",
+      faq_q1: "How is BMI calculated?",
+      faq_a1: "BMI is calculated by dividing weight in kilograms by height in meters squared (BMI = weight / height²). It's then classified into ranges: underweight, normal, overweight, or obesity.",
+      faq_q2: "What is TDEE and how is it calculated?",
+      faq_a2: "TDEE (total daily energy expenditure) is calculated by getting your basal metabolic rate (BMR) with the Mifflin-St Jeor formula and multiplying it by a factor based on your activity level, from sedentary to very active.",
+      faq_q3: "Is BMI accurate for everyone?",
+      faq_a3: "Not entirely. BMI doesn't distinguish between muscle and fat mass, so it can overestimate risk in very muscular people or underestimate it in people with low muscle mass. Use it as a general reference, not a diagnosis.",
+      cta_text: "Did this calculator help you? If it saved you time, buy me a coffee.",
+      cta_btn: "Buy me a coffee",
+      disclaimer: "Educational tool. Not medical or nutritional advice. Consult a healthcare professional.",
+      docTitle: "Free BMI and Calorie (TDEE) Calculator | 2026",
+      docDesc: "Calculate your BMI and daily calorie needs (TDEE) for free. Mifflin-St Jeor formula, weight classification, activity level. No sign-up.",
+      titleHtml: "Know your <em>BMI</em><br>and daily calorie needs",
+      locale: "en-US",
+      htmlLang: "en"
+    }
+  };
+
+  function detectLang(){
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved && translations[saved]) return saved;
+    const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    return nav.startsWith('es') ? 'es' : 'en';
+  }
+
+  let currentLang = detectLang();
+
+  function applyLang(lang){
+    currentLang = lang;
+    localStorage.setItem('preferred-lang', lang);
+    const t = translations[lang];
+
+    document.documentElement.lang = t.htmlLang;
+    document.getElementById('doc-title').textContent = t.docTitle;
+    document.title = t.docTitle;
+    document.getElementById('meta-desc').setAttribute('content', t.docDesc);
+    document.getElementById('og-title').setAttribute('content', t.docTitle);
+    document.getElementById('og-desc').setAttribute('content', t.docDesc);
+    document.getElementById('tw-title').setAttribute('content', t.docTitle);
+    document.getElementById('tw-desc').setAttribute('content', t.docDesc);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (key === 'title') el.innerHTML = t.titleHtml;
+    });
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    calcular();
+  }
+
+  document.getElementById('btn-es').addEventListener('click', () => applyLang('es'));
+  document.getElementById('btn-en').addEventListener('click', () => applyLang('en'));
+
+  const pesoInput = document.getElementById('peso');
+  const alturaInput = document.getElementById('altura');
+  const edadInput = document.getElementById('edad');
+  const sexoInput = document.getElementById('sexo');
+  const actividadInput = document.getElementById('actividad');
+
+  function fmtNum(n, decimals){
+    const locale = translations[currentLang].locale;
+    return new Intl.NumberFormat(locale, { maximumFractionDigits: decimals, minimumFractionDigits: decimals }).format(n);
+  }
+  function fmtInt(n){
+    const locale = translations[currentLang].locale;
+    return new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(Math.round(n));
+  }
+
+  function calcular(){
+    const peso = parseFloat(pesoInput.value) || 0;
+    const alturaCm = parseFloat(alturaInput.value) || 0;
+    const alturaM = alturaCm / 100;
+    const edad = parseFloat(edadInput.value) || 0;
+    const sexo = sexoInput.value;
+    const actFactor = parseFloat(actividadInput.value);
+    const t = translations[currentLang];
+
+    document.getElementById('v-peso').textContent = fmtNum(peso, 1) + ' kg';
+    document.getElementById('v-altura').textContent = fmtInt(alturaCm) + ' cm';
+    document.getElementById('v-edad').textContent = fmtInt(edad);
+
+    const imc = alturaM > 0 ? peso / (alturaM * alturaM) : 0;
+    document.getElementById('resultado').textContent = fmtNum(imc, 1);
+
+    let catKey, catColor;
+    if (imc < 18.5){ catKey = 'cat_bajo'; catColor = 'var(--terracotta)'; }
+    else if (imc < 25){ catKey = 'cat_normal'; catColor = 'var(--sage)'; }
+    else if (imc < 30){ catKey = 'cat_sobrepeso'; catColor = 'var(--gold)'; }
+    else { catKey = 'cat_obesidad'; catColor = 'var(--terracotta)'; }
+
+    const catEl = document.getElementById('categoria');
+    catEl.textContent = t[catKey];
+    catEl.style.color = catColor;
+
+    const minScale = 15, maxScale = 40;
+    let pct = ((imc - minScale) / (maxScale - minScale)) * 100;
+    pct = Math.max(0, Math.min(100, pct));
+    document.getElementById('gauge-marker').style.left = pct + '%';
+
+    let bmr;
+    if (sexo === 'm'){
+      bmr = 10 * peso + 6.25 * alturaCm - 5 * edad + 5;
+    } else {
+      bmr = 10 * peso + 6.25 * alturaCm - 5 * edad - 161;
+    }
+    const tdee = bmr * actFactor;
+
+    document.getElementById('v-bmr').textContent = fmtInt(bmr) + ' kcal';
+    document.getElementById('v-tdee').textContent = fmtInt(tdee) + ' kcal';
+  }
+
+  [pesoInput, alturaInput, edadInput, sexoInput, actividadInput].forEach(el => {
+    el.addEventListener('input', calcular);
+  });
+
+  applyLang(currentLang);
+</script>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ===== SEO: Primary meta ===== -->
+<title id="doc-title">Calculadora para Dividir la Cuenta Gratis — Split Bill | 2026</title>
+<meta id="meta-desc" name="description" content="Divide una cuenta entre varias personas con propina incluida, gratis. Calcula cuánto paga cada quien al instante. Sin registro.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Herramientas Financieras Gratis">
+<link id="canonical" rel="canonical" href="https://mini-webapps-six.vercel.app/split-bill/">
+
+<link rel="alternate" hreflang="es" href="https://mini-webapps-six.vercel.app/split-bill/">
+<link rel="alternate" hreflang="en" href="https://mini-webapps-six.vercel.app/split-bill/">
+<link rel="alternate" hreflang="x-default" href="https://mini-webapps-six.vercel.app/split-bill/">
+
+<meta id="og-title" property="og:title" content="Calculadora para Dividir la Cuenta Gratis — Split Bill">
+<meta id="og-desc" property="og:description" content="Divide una cuenta entre varias personas con propina incluida. Gratis, sin registro.">
+<meta property="og:type" content="website">
+<meta id="og-url" property="og:url" content="https://mini-webapps-six.vercel.app/split-bill/">
+<meta property="og:image" content="https://mini-webapps-six.vercel.app/og-image.png">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta id="og-site" property="og:site_name" content="Herramientas Financieras Gratis">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta id="tw-title" name="twitter:title" content="Calculadora para Dividir la Cuenta Gratis">
+<meta id="tw-desc" name="twitter:description" content="Divide la cuenta entre amigos con propina incluida. Gratis y sin registro.">
+
+<meta name="theme-color" content="#0F1B2B">
+
+<script type="application/ld+json" id="schema-app">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora para Dividir la Cuenta",
+  "url": "https://mini-webapps-six.vercel.app/split-bill/",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Calculadora gratuita para dividir una cuenta entre varias personas, con propina incluida, mostrando cuánto paga cada persona.",
+  "inLanguage": ["es", "en"]
+}
+</script>
+<script type="application/ld+json" id="schema-faq">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo se divide una cuenta entre varias personas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se suma la propina al total de la cuenta y luego se divide ese monto entre el número de personas, dando el valor exacto que cada una debe pagar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto es una propina razonable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del país y del servicio, pero un rango común va del 10% al 20% del total de la cuenta. En algunos países la propina ya viene incluida en la cuenta como servicio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si el monto no se divide exacto entre las personas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El monto por persona puede quedar con decimales. Lo habitual es redondear al valor más práctico según la moneda local, o acordar quién cubre la diferencia mínima."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#0F1B2B;
+    --paper:#F5EFE3;
+    --gold:#C9A961;
+    --sage:#4A7C6E;
+    --terracotta:#8B4B3B;
+    --paper-dim:#E8DFCC;
+    --ink-soft:rgba(245,239,227,0.62);
+    --ink-faint:rgba(245,239,227,0.32);
+    --space-xs:8px; --space-sm:14px; --space-md:22px; --space-lg:32px; --space-xl:48px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    padding:clamp(16px,4vw,24px) 16px 60px;
+    line-height:1.5;
+  }
+
+  .wrap{max-width:960px; margin:0 auto;}
+
+  .topbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:10px;}
+  .home-link{font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-faint); text-decoration:none; transition:color 0.15s ease;}
+  .home-link:hover{color:var(--gold);}
+
+  .lang-switch{display:flex; justify-content:flex-end; gap:4px;}
+  .lang-btn{
+    background:none;
+    border:1px solid rgba(245,239,227,0.16);
+    color:var(--ink-soft);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    padding:6px 12px;
+    border-radius:3px;
+    cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .lang-btn.active{background:var(--gold); color:var(--ink); border-color:var(--gold); font-weight:700;}
+  .lang-btn:not(.active):hover{border-color:var(--gold); color:var(--gold);}
+
+  header{text-align:center; padding:clamp(20px,5vw,32px) 0 clamp(28px,6vw,40px);}
+  .eyebrow{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;}
+  h1{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(28px,6.5vw,52px); letter-spacing:-0.01em; line-height:1.08;}
+  h1 em{font-style:italic; font-weight:300; color:var(--gold);}
+  .sub{color:var(--ink-soft); max-width:480px; margin:16px auto 0; font-size:clamp(14px,3.2vw,15px);}
+
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,3vw,28px);}
+  @media (max-width:760px){.grid{grid-template-columns:1fr;}}
+
+  .panel{background:rgba(245,239,227,0.04); border:1px solid rgba(245,239,227,0.1); border-radius:4px; padding:clamp(20px,4vw,28px);}
+
+  .field{margin-bottom:22px;}
+  .field:last-child{margin-bottom:0;}
+  label{display:flex; justify-content:space-between; align-items:baseline; font-size:13px; color:var(--ink-soft); margin-bottom:8px; font-weight:500; gap:8px;}
+  label .val{font-family:'Space Mono',monospace; color:var(--gold); font-size:13px; text-align:right; white-space:nowrap;}
+
+  input[type="range"]{-webkit-appearance:none; appearance:none; width:100%; height:28px; background:transparent; outline:none; touch-action:pan-y;}
+  input[type="range"]::-webkit-slider-runnable-track{height:3px; background:rgba(245,239,227,0.2); border-radius:2px;}
+  input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none; margin-top:-9px; width:21px; height:21px; border-radius:50%; background:var(--gold); cursor:pointer; border:3px solid var(--ink); box-shadow:0 0 0 1px var(--gold);}
+  input[type="range"]::-moz-range-track{height:3px; background:rgba(245,239,227,0.2); border-radius:2px;}
+  input[type="range"]::-moz-range-thumb{width:21px; height:21px; border-radius:50%; background:var(--gold); cursor:pointer; border:3px solid var(--ink);}
+
+  .num-input{display:flex; align-items:center; background:rgba(245,239,227,0.05); border:1px solid rgba(245,239,227,0.14); border-radius:3px; overflow:hidden;}
+  .num-input span{padding:12px; font-family:'Space Mono',monospace; color:var(--ink-faint); font-size:14px; border-right:1px solid rgba(245,239,227,0.1); flex-shrink:0;}
+  .num-input input[type="number"]{flex:1; min-width:0; background:none; border:none; outline:none; color:var(--paper); font-family:'Space Mono',monospace; font-size:16px; padding:12px; width:100%;}
+
+  /* Stepper for people count */
+  .stepper{display:flex; align-items:stretch; gap:8px;}
+  .stepper button{
+    width:44px;
+    min-height:44px;
+    background:rgba(245,239,227,0.05);
+    border:1px solid rgba(245,239,227,0.14);
+    border-radius:3px;
+    color:var(--gold);
+    font-family:'Space Mono',monospace;
+    font-size:20px;
+    cursor:pointer;
+    flex-shrink:0;
+    transition:border-color 0.15s ease;
+  }
+  .stepper button:hover{border-color:var(--gold);}
+  .stepper .stepper-val{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Space Mono',monospace;
+    font-size:18px;
+    color:var(--paper);
+    background:rgba(245,239,227,0.05);
+    border:1px solid rgba(245,239,227,0.14);
+    border-radius:3px;
+    min-height:44px;
+  }
+
+  .result-panel{display:flex; flex-direction:column;}
+  .result-label{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:6px;}
+  .result-figure{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(30px,7vw,48px); color:var(--gold); letter-spacing:-0.01em; line-height:1; margin-bottom:24px; word-break:break-word;}
+
+  .breakdown{display:flex; flex-direction:column; gap:10px; margin-bottom:24px;}
+  .b-row{display:flex; justify-content:space-between; align-items:center; font-size:13px; padding-bottom:10px; border-bottom:1px solid rgba(245,239,227,0.08); gap:8px;}
+  .b-row .b-label{color:var(--ink-soft);}
+  .b-row .b-val{font-family:'Space Mono',monospace; color:var(--paper); text-align:right;}
+
+  /* ---- People avatars ---- */
+  .avatars-wrap{flex:1; display:flex; flex-direction:column; justify-content:center; min-height:140px;}
+  .avatars{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+    padding:8px 0;
+  }
+  .avatar{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    width:64px;
+  }
+  .avatar-circle{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:var(--sage);
+    color:var(--paper);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Space Mono',monospace;
+    font-weight:700;
+    font-size:15px;
+    flex-shrink:0;
+    transition:transform 0.3s cubic-bezier(.16,1,.3,1), opacity 0.3s ease;
+  }
+  .avatar-amount{
+    font-family:'Space Mono',monospace;
+    font-size:10.5px;
+    color:var(--ink-soft);
+    text-align:center;
+    word-break:break-word;
+  }
+  .chart-caption{font-family:'Space Mono',monospace; font-size:10px; color:var(--ink-faint); text-align:center; margin-top:14px; letter-spacing:0.04em;}
+
+  .seo-content{margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid rgba(245,239,227,0.08);}
+  .seo-content h2{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(20px,4vw,26px); margin-bottom:14px; color:var(--paper);}
+  .seo-content p{color:var(--ink-soft); font-size:14px; max-width:680px; margin-bottom:16px;}
+  .faq-item{margin-bottom:20px;}
+  .faq-item h3{font-size:15px; font-weight:600; margin-bottom:6px; color:var(--paper);}
+  .faq-item p{margin-bottom:0; font-size:13.5px;}
+
+  footer{text-align:center; margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid rgba(245,239,227,0.08);}
+  .cta{font-size:14px; color:var(--ink-soft); margin-bottom:16px; max-width:420px; margin-left:auto; margin-right:auto;}
+  .coffee-btn{display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--ink); font-weight:600; font-size:14px; padding:14px 26px; border-radius:3px; text-decoration:none; transition:transform 0.15s ease, box-shadow 0.15s ease; min-height:44px;}
+  .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
+  .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:20px;}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  @media (prefers-reduced-motion:reduce){
+    .avatar-circle{transition:none;}
+    .coffee-btn{transition:none;}
+  }
+
+  @media (max-width:380px){
+    .panel{padding:16px;}
+    .num-input span{padding:10px 8px; font-size:13px;}
+    .num-input input[type="number"]{padding:10px 8px;}
+    .avatar{width:54px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="/" class="home-link" data-i18n="home_link">← Todas las herramientas</a>
+    <div class="lang-switch" role="group" aria-label="Language selector">
+      <button class="lang-btn" data-lang="es" id="btn-es">ES</button>
+      <button class="lang-btn" data-lang="en" id="btn-en">EN</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="eyebrow" data-i18n="eyebrow">Dividir cuenta</div>
+    <h1 data-i18n-html="title">Divide la <em>cuenta</em><br>sin hacer cuentas</h1>
+    <p class="sub" data-i18n="subtitle">Pon el total, cuántos son y la propina — mira al instante cuánto le toca pagar a cada quien.</p>
+  </header>
+
+  <main>
+  <div class="grid">
+    <section class="panel" aria-label="Calculator inputs">
+      <div class="field">
+        <label for="total"><span data-i18n="lbl_total">Total de la cuenta</span> <span class="val" id="v-total-in">$100.000</span></label>
+        <div class="num-input">
+          <span>$</span>
+          <input type="number" id="total" value="100000" min="0" step="1000" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="personas-val"><span data-i18n="lbl_personas">Número de personas</span></label>
+        <div class="stepper">
+          <button type="button" id="btn-minus" aria-label="Restar persona">−</button>
+          <div class="stepper-val" id="personas-val">4</div>
+          <button type="button" id="btn-plus" aria-label="Sumar persona">+</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="propina"><span data-i18n="lbl_propina">Propina</span> <span class="val" id="v-propina">10%</span></label>
+        <input type="range" id="propina" min="0" max="30" step="1" value="10">
+      </div>
+    </section>
+
+    <section class="panel result-panel" aria-label="Results" aria-live="polite">
+      <div class="result-label" data-i18n="result_label">Por persona</div>
+      <div class="result-figure" id="resultado">$0</div>
+
+      <div class="breakdown">
+        <div class="b-row">
+          <span class="b-label" data-i18n="lbl_propina_monto">Propina total</span>
+          <span class="b-val" id="v-propina-monto">$0</span>
+        </div>
+        <div class="b-row">
+          <span class="b-label" data-i18n="lbl_total_con_propina">Total con propina</span>
+          <span class="b-val" id="v-total-con-propina">$0</span>
+        </div>
+      </div>
+
+      <div class="avatars-wrap">
+        <div class="avatars" id="avatars" role="img" aria-label="Monto por persona"></div>
+      </div>
+      <div class="chart-caption" data-i18n="chart_caption">MONTO A PAGAR POR CADA PERSONA</div>
+    </section>
+  </div>
+
+  <section class="seo-content">
+    <h2 data-i18n="seo_h2_1">¿Cómo dividir una cuenta con propina entre amigos?</h2>
+    <p data-i18n="seo_p_1">Para dividir una cuenta de forma justa, primero se calcula la propina sobre el total, se suma al valor de la cuenta, y ese resultado se divide entre el número de personas. Así cada quien paga una parte proporcional, incluyendo su parte de la propina.</p>
+
+    <div class="faq-item">
+      <h3 data-i18n="faq_q1">¿Cómo se divide una cuenta entre varias personas?</h3>
+      <p data-i18n="faq_a1">Se suma la propina al total de la cuenta y luego se divide ese monto entre el número de personas, dando el valor exacto que cada una debe pagar.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq_q2">¿Cuánto es una propina razonable?</h3>
+      <p data-i18n="faq_a2">Depende del país y del servicio, pero un rango común va del 10% al 20% del total de la cuenta. En algunos países la propina ya viene incluida en la cuenta como servicio.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq_q3">¿Qué pasa si el monto no se divide exacto entre las personas?</h3>
+      <p data-i18n="faq_a3">El monto por persona puede quedar con decimales. Lo habitual es redondear al valor más práctico según la moneda local, o acordar quién cubre la diferencia mínima.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <p class="cta" data-i18n="cta_text">¿Te sirvió esta calculadora? Si te evitó una discusión sobre quién debe qué, invítame un café.</p>
+    <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
+    <p class="footnote" data-i18n="disclaimer">Herramienta educativa de uso general. Los redondeos pueden variar según tu moneda local.</p>
+  </footer>
+
+</div>
+
+<script>
+  const translations = {
+    es: {
+      home_link: "← Todas las herramientas",
+      eyebrow: "Dividir cuenta",
+      subtitle: "Pon el total, cuántos son y la propina — mira al instante cuánto le toca pagar a cada quien.",
+      lbl_total: "Total de la cuenta",
+      lbl_personas: "Número de personas",
+      lbl_propina: "Propina",
+      result_label: "Por persona",
+      lbl_propina_monto: "Propina total",
+      lbl_total_con_propina: "Total con propina",
+      chart_caption: "MONTO A PAGAR POR CADA PERSONA",
+      seo_h2_1: "¿Cómo dividir una cuenta con propina entre amigos?",
+      seo_p_1: "Para dividir una cuenta de forma justa, primero se calcula la propina sobre el total, se suma al valor de la cuenta, y ese resultado se divide entre el número de personas. Así cada quien paga una parte proporcional, incluyendo su parte de la propina.",
+      faq_q1: "¿Cómo se divide una cuenta entre varias personas?",
+      faq_a1: "Se suma la propina al total de la cuenta y luego se divide ese monto entre el número de personas, dando el valor exacto que cada una debe pagar.",
+      faq_q2: "¿Cuánto es una propina razonable?",
+      faq_a2: "Depende del país y del servicio, pero un rango común va del 10% al 20% del total de la cuenta. En algunos países la propina ya viene incluida en la cuenta como servicio.",
+      faq_q3: "¿Qué pasa si el monto no se divide exacto entre las personas?",
+      faq_a3: "El monto por persona puede quedar con decimales. Lo habitual es redondear al valor más práctico según la moneda local, o acordar quién cubre la diferencia mínima.",
+      cta_text: "¿Te sirvió esta calculadora? Si te evitó una discusión sobre quién debe qué, invítame un café.",
+      cta_btn: "Invítame un café",
+      disclaimer: "Herramienta educativa de uso general. Los redondeos pueden variar según tu moneda local.",
+      person_prefix: "P",
+      docTitle: "Calculadora para Dividir la Cuenta Gratis — Split Bill | 2026",
+      docDesc: "Divide una cuenta entre varias personas con propina incluida, gratis. Calcula cuánto paga cada quien al instante. Sin registro.",
+      titleHtml: "Divide la <em>cuenta</em><br>sin hacer cuentas",
+      locale: "es-CO",
+      htmlLang: "es"
+    },
+    en: {
+      home_link: "← All tools",
+      eyebrow: "Split the bill",
+      subtitle: "Enter the total, how many people, and the tip — see instantly how much each person owes.",
+      lbl_total: "Bill total",
+      lbl_personas: "Number of people",
+      lbl_propina: "Tip",
+      result_label: "Per person",
+      lbl_propina_monto: "Total tip",
+      lbl_total_con_propina: "Total with tip",
+      chart_caption: "AMOUNT OWED BY EACH PERSON",
+      seo_h2_1: "How do you split a bill with tip among friends?",
+      seo_p_1: "To split a bill fairly, first calculate the tip on the total, add it to the bill amount, then divide that result by the number of people. That way everyone pays a proportional share, including their share of the tip.",
+      faq_q1: "How do you split a bill between several people?",
+      faq_a1: "Add the tip to the bill total, then divide that amount by the number of people, giving the exact amount each person should pay.",
+      faq_q2: "How much is a reasonable tip?",
+      faq_a2: "It depends on the country and the service, but a common range is 10% to 20% of the total bill. In some countries the tip is already included in the bill as a service charge.",
+      faq_q3: "What happens if the amount doesn't divide evenly among people?",
+      faq_a3: "The per-person amount may come out with decimals. It's common to round to the most practical value for your local currency, or agree on who covers the small difference.",
+      cta_text: "Did this calculator help you? If it saved you an argument about who owes what, buy me a coffee.",
+      cta_btn: "Buy me a coffee",
+      disclaimer: "General-use educational tool. Rounding may vary depending on your local currency.",
+      person_prefix: "P",
+      docTitle: "Free Split Bill Calculator — Divide the Check | 2026",
+      docDesc: "Split a bill between several people with tip included, for free. Instantly calculate how much each person owes. No sign-up.",
+      titleHtml: "Split the <em>bill</em><br>without doing the math",
+      locale: "en-US",
+      htmlLang: "en"
+    }
+  };
+
+  function detectLang(){
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved && translations[saved]) return saved;
+    const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    return nav.startsWith('es') ? 'es' : 'en';
+  }
+
+  let currentLang = detectLang();
+  let numPersonas = 4;
+
+  function applyLang(lang){
+    currentLang = lang;
+    localStorage.setItem('preferred-lang', lang);
+    const t = translations[lang];
+
+    document.documentElement.lang = t.htmlLang;
+    document.getElementById('doc-title').textContent = t.docTitle;
+    document.title = t.docTitle;
+    document.getElementById('meta-desc').setAttribute('content', t.docDesc);
+    document.getElementById('og-title').setAttribute('content', t.docTitle);
+    document.getElementById('og-desc').setAttribute('content', t.docDesc);
+    document.getElementById('tw-title').setAttribute('content', t.docTitle);
+    document.getElementById('tw-desc').setAttribute('content', t.docDesc);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (key === 'title') el.innerHTML = t.titleHtml;
+    });
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    calcular();
+  }
+
+  document.getElementById('btn-es').addEventListener('click', () => applyLang('es'));
+  document.getElementById('btn-en').addEventListener('click', () => applyLang('en'));
+
+  const totalInput = document.getElementById('total');
+  const propinaInput = document.getElementById('propina');
+  const personasVal = document.getElementById('personas-val');
+  const btnMinus = document.getElementById('btn-minus');
+  const btnPlus = document.getElementById('btn-plus');
+
+  function fmt(n){
+    const locale = translations[currentLang].locale;
+    return new Intl.NumberFormat(locale, { style:'currency', currency:'USD', maximumFractionDigits:0 })
+      .format(Math.round(n))
+      .replace('USD','$').replace('US$','$');
+  }
+
+  function calcular(){
+    const total = parseFloat(totalInput.value) || 0;
+    const propinaPct = parseFloat(propinaInput.value) / 100;
+
+    document.getElementById('v-total-in').textContent = fmt(total);
+    document.getElementById('v-propina').textContent = propinaInput.value + '%';
+    personasVal.textContent = numPersonas;
+
+    const propinaMonto = total * propinaPct;
+    const totalConPropina = total + propinaMonto;
+    const porPersona = numPersonas > 0 ? totalConPropina / numPersonas : 0;
+
+    document.getElementById('resultado').textContent = fmt(porPersona);
+    document.getElementById('v-propina-monto').textContent = fmt(propinaMonto);
+    document.getElementById('v-total-con-propina').textContent = fmt(totalConPropina);
+
+    renderAvatars(porPersona);
+  }
+
+  function renderAvatars(porPersona){
+    const container = document.getElementById('avatars');
+    container.innerHTML = '';
+    const t = translations[currentLang];
+    for (let i = 1; i <= numPersonas; i++){
+      const av = document.createElement('div');
+      av.className = 'avatar';
+      const circle = document.createElement('div');
+      circle.className = 'avatar-circle';
+      circle.textContent = t.person_prefix + i;
+      const amount = document.createElement('div');
+      amount.className = 'avatar-amount';
+      amount.textContent = fmt(porPersona);
+      av.appendChild(circle);
+      av.appendChild(amount);
+      container.appendChild(av);
+    }
+  }
+
+  btnMinus.addEventListener('click', () => {
+    if (numPersonas > 1){ numPersonas--; calcular(); }
+  });
+  btnPlus.addEventListener('click', () => {
+    if (numPersonas < 30){ numPersonas++; calcular(); }
+  });
+
+  [totalInput, propinaInput].forEach(el => {
+    el.addEventListener('input', calcular);
+  });
+
+  applyLang(currentLang);
+</script>
+</body>
+</html>

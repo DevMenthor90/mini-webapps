@@ -46,17 +46,19 @@ mejor experiencia de usuario (un solo lugar con menú, no links sueltos).
 
 ```
 site/
-  index.html                      → HUB: menú con tarjetas a cada herramienta
+  index.html                      → HUB: menú con tarjetas a cada herramienta (5 activas)
   interes-compuesto/
     index.html                    → Calculadora de interés compuesto (LISTA)
   imc-calorias/
-    index.html                    → Calculadora IMC + TDEE (PENDIENTE)
+    index.html                    → Calculadora IMC + TDEE (LISTA)
   prestamo/
-    index.html                    → Calculadora cuota de préstamo (PENDIENTE)
+    index.html                    → Calculadora cuota de préstamo (LISTA)
   split-bill/
-    index.html                    → Dividir cuenta entre personas (PENDIENTE)
+    index.html                    → Dividir cuenta entre personas (LISTA)
+  peso-mascota/
+    index.html                    → Peso ideal de mascotas, perro/gato (LISTA)
   conversor-unidades/
-    index.html                    → Conversor de unidades (PENDIENTE - 5ta idea, no confirmada aún)
+    index.html                    → Conversor de unidades (PENDIENTE - idea futura, no confirmada aún)
 ```
 
 ### Cómo subir a GitHub → Vercel
@@ -77,10 +79,11 @@ tienen tráfico masivo y recurrente; nichos específicos con baja competencia re
 ganan más rápido que términos genéricos saturados por marcas grandes).
 
 1. ✅ **Interés compuesto / ahorro** — CONSTRUIDA
-2. ⏳ **IMC + calorías diarias (TDEE)** — siguiente en la fila
-3. ⏳ **Cuota de préstamo / crédito** — alta demanda en LatAm (créditos de consumo, vivienda)
-4. ⏳ **Split bill (dividir cuenta + propina)** — uso constante, viral en grupos
-5. ⏳ **Conversor de unidades todo-en-uno** — uso diario, no confirmada como prioridad aún
+2. ✅ **IMC + calorías diarias (TDEE)** — CONSTRUIDA
+3. ✅ **Cuota de préstamo / crédito** — CONSTRUIDA (alta demanda en LatAm, créditos de consumo, vivienda)
+4. ✅ **Split bill (dividir cuenta + propina)** — CONSTRUIDA (uso constante, viral en grupos)
+5. ✅ **Peso ideal de mascotas (perro/gato)** — CONSTRUIDA (rangos por tamaño de raza, orientativo)
+6. ⏳ **Conversor de unidades todo-en-uno** — uso diario, no confirmada como prioridad aún
 
 ---
 
@@ -161,15 +164,17 @@ en español e inglés — no hay un sistema compartido entre páginas todavía (
 1. ✅ Investigación de plataforma de monetización (Ko-fi ganó)
 2. ✅ Investigación de demanda de calculadoras (5 ideas validadas)
 3. ✅ Calculadora de interés compuesto — diseño + responsive + i18n + SEO completo
-4. ✅ Hub principal (`index.html`) con tarjetas a las 4 herramientas (1 activa, 3 "próximamente")
-5. ✅ Repo en GitHub: https://github.com/DevMenthor90/mini-webapps
-6. ✅ Desplegado en Vercel: https://mini-webapps-six.vercel.app (auto-deploy conectado al repo)
-7. ✅ Placeholders `TU-DOMINIO.vercel.app` reemplazados en todos los archivos
-8. ✅ Cuenta Ko-fi creada y conectada a PayPal: https://ko-fi.com/devmenthor — `TU_USUARIO` reemplazado en todos los botones
-9. ⏳ Pendiente: construir calculadora de IMC/calorías (siguiente en la fila)
-10. ⏳ Pendiente: construir calculadora de préstamo
-11. ⏳ Pendiente: construir split bill
-12. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
+4. ✅ Calculadora de IMC + calorías (TDEE) — gauge tipo termómetro, Mifflin-St Jeor
+5. ✅ Calculadora de cuota de préstamo — donut chart con conic-gradient, amortización francesa
+6. ✅ Split bill (dividir cuenta + propina) — fichas/avatares dinámicos por persona
+7. ✅ Peso ideal de mascotas (perro/gato) — gauge por tamaño de raza, orientativo
+8. ✅ Hub principal (`index.html`) con tarjetas a las 5 herramientas, todas "Disponible"
+9. ✅ Repo en GitHub: https://github.com/DevMenthor90/mini-webapps
+10. ✅ Desplegado en Vercel: https://mini-webapps-six.vercel.app (auto-deploy conectado al repo)
+11. ✅ Placeholders `TU-DOMINIO.vercel.app` reemplazados en todos los archivos
+12. ✅ Cuenta Ko-fi creada y conectada a PayPal: https://ko-fi.com/devmenthor — `TU_USUARIO` reemplazado en todos los botones
+13. ⏳ Pendiente (opcional): conversor de unidades todo-en-uno, si se confirma como prioridad
+14. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
 
 ---
 
