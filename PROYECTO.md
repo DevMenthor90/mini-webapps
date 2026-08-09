@@ -63,6 +63,8 @@ site/
     index.html                    → Directorio de radio online por país (LISTA)
   tv-en-vivo/
     index.html                    → TV en vivo, solo canales oficiales vía YouTube embed (LISTA)
+  biblia/
+    index.html                    → Biblia online, lectura y buscador (RV1960/KJV) (LISTA)
   conversor-unidades/
     index.html                    → Conversor de unidades (PENDIENTE - idea futura, no confirmada aún)
 ```
@@ -92,7 +94,8 @@ ganan más rápido que términos genéricos saturados por marcas grandes).
 6. ✅ **Conversor de divisas** — CONSTRUIDA (API exchangerate-api.com free tier, incluye COP, sin API key)
 7. ✅ **Radio online gratis** — CONSTRUIDA (API Radio-Browser, directorio abierto por país)
 8. ✅ **TV en vivo gratis** — CONSTRUIDA (solo canales oficiales vía YouTube Live embed, ver política de contenido abajo)
-9. ⏳ **Conversor de unidades todo-en-uno** — uso diario, no confirmada como prioridad aún
+9. ✅ **Biblia online** — CONSTRUIDA (API bolls.life, RV1960 español / KJV inglés, sin API key, textos de dominio público)
+10. ⏳ **Conversor de unidades todo-en-uno** — uso diario, no confirmada como prioridad aún
 
 ---
 
@@ -165,6 +168,30 @@ llamadas de red). Reglas replicadas en las tres:
 - Nota legal explícita en el footer: los streams son de terceros (las
   emisoras), agregados desde un directorio abierto. El sitio no aloja audio
   propio.
+
+### Biblia online (`/biblia/`)
+- API: [bolls.life](https://bolls.life/) — API pública gratuita, sin API key.
+  Endpoints usados (verificados con `curl` antes de construir, en ambos idiomas):
+  - `GET /get-books/{TRANSLATION}/` → lista de libros `{ bookid, chronorder, name, chapters }`,
+    nombres ya vienen en el idioma correcto de la traducción.
+  - `GET /get-chapter/{TRANSLATION}/{bookid}/{chapter}/` → array de versículos
+    `{ pk, verse, text }` del capítulo completo.
+  - `GET /get-verse/{TRANSLATION}/{bookid}/{chapter}/{verse}/` → un solo versículo
+    (usado para el "versículo del momento" aleatorio en el estado de bienvenida).
+  - `GET /v2/find/{TRANSLATION}?search={QUERY}&match_case=false&match_whole=false` →
+    `{ results: [{ pk, translation, book, chapter, verse, text }] }`, con la palabra
+    buscada envuelta en `<mark>…</mark>` dentro de `text`.
+  - Traducciones: `RV1960` (Reina-Valera 1960, español) y `KJV` (King James Version,
+    inglés) — ambas de dominio público. La traducción activa cambia junto con el
+    selector de idioma ES/EN del sitio (no hay selector de traducción separado).
+  - Nota: el texto de `KJV` en `/get-chapter/` viene con números de Strong embebidos
+    como `<S>1234</S>` dentro de `text`; se despojan con una función `stripTags()`
+    junto con cualquier otra etiqueta HTML antes de mostrar el versículo.
+  - Resaltado seguro de resultados de búsqueda: el `text` de `/v2/find/` se divide
+    con regex en segmentos dentro/fuera de `<mark>…</mark>` (los únicos tags que la
+    API inserta ahí), cada segmento se escapa con `escapeHtml()` por separado, y
+    solo entonces se reconstruyen manualmente las etiquetas `<mark>` reales —
+    nunca se hace `innerHTML` directo sobre el texto crudo de la API.
 
 ### TV en vivo (`/tv-en-vivo/`) — política de contenido
 - **Solo canales que transmiten oficialmente y gratis vía su propio canal de
@@ -262,15 +289,16 @@ formal es un paso futuro. Hoy solo se dejó lista la infraestructura:
 8. ✅ Conversor de divisas — API exchangerate-api.com (incluye COP), tarjetas de moneda con bandera emoji + flecha animada
 9. ✅ Radio online gratis — API Radio-Browser, ecualizador CSS animado en la estación sonando
 10. ✅ TV en vivo gratis — solo canales oficiales vía YouTube Live embed (NASA TV, France 24, DW News, euronews)
-11. ✅ Hub principal (`index.html`) con tarjetas a las 8 herramientas, todas "Disponible"
-12. ✅ Repo en GitHub: https://github.com/DevMenthor90/mini-webapps
-13. ✅ Desplegado en Vercel: https://mini-webapps-six.vercel.app (auto-deploy conectado al repo)
-14. ✅ Placeholders `TU-DOMINIO.vercel.app` reemplazados en todos los archivos
-15. ✅ Cuenta Ko-fi creada y conectada a PayPal: https://ko-fi.com/devmenthor — `TU_USUARIO` reemplazado en todos los botones
-16. ✅ Página de política de privacidad (`/privacidad/`) + link en footer de todas las páginas + slots de AdSense reservados (inactivos) — ver sección "Google AdSense" arriba
-17. ⏳ Pendiente (opcional): conversor de unidades todo-en-uno, si se confirma como prioridad
-18. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
-19. ⏳ Pendiente (futuro, requiere tráfico real primero): postular a Google AdSense, activar client ID real
+11. ✅ Biblia online — API bolls.life, RV1960/KJV, lectura por libro/capítulo + buscador de versículos
+12. ✅ Hub principal (`index.html`) con tarjetas a las 9 herramientas, todas "Disponible"
+13. ✅ Repo en GitHub: https://github.com/DevMenthor90/mini-webapps
+14. ✅ Desplegado en Vercel: https://mini-webapps-six.vercel.app (auto-deploy conectado al repo)
+15. ✅ Placeholders `TU-DOMINIO.vercel.app` reemplazados en todos los archivos
+16. ✅ Cuenta Ko-fi creada y conectada a PayPal: https://ko-fi.com/devmenthor — `TU_USUARIO` reemplazado en todos los botones
+17. ✅ Página de política de privacidad (`/privacidad/`) + link en footer de todas las páginas + slots de AdSense reservados (inactivos) — ver sección "Google AdSense" arriba
+18. ⏳ Pendiente (opcional): conversor de unidades todo-en-uno, si se confirma como prioridad
+19. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
+20. ⏳ Pendiente (futuro, requiere tráfico real primero): postular a Google AdSense, activar client ID real
 
 ---
 
