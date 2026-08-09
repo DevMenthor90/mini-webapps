@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ===== SEO: Primary meta ===== -->
+<title id="doc-title">Calculadora de Interés Compuesto Gratis — Cuánto Crece tu Dinero | 2026</title>
+<meta id="meta-desc" name="description" content="Calculadora de interés compuesto gratuita y fácil. Simula tu ahorro o inversión mes a mes, ve cuánto genera el interés vs. tus aportes. Sin registro.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Interés Compuesto Calc">
+<link id="canonical" rel="canonical" href="https://TU-DOMINIO.vercel.app/interes-compuesto/">
+
+<!-- ===== hreflang (ajusta dominio real al publicar) ===== -->
+<link rel="alternate" hreflang="es" href="https://TU-DOMINIO.vercel.app/interes-compuesto/">
+<link rel="alternate" hreflang="en" href="https://TU-DOMINIO.vercel.app/interes-compuesto/">
+<link rel="alternate" hreflang="x-default" href="https://TU-DOMINIO.vercel.app/interes-compuesto/">
+
+<!-- ===== Open Graph / Social ===== -->
+<meta id="og-title" property="og:title" content="Calculadora de Interés Compuesto Gratis — Cuánto Crece tu Dinero">
+<meta id="og-desc" property="og:description" content="Simula tu ahorro o inversión y descubre cuánto genera el interés compuesto vs. lo que aportaste. Gratis, sin registro.">
+<meta property="og:type" content="website">
+<meta id="og-url" property="og:url" content="https://TU-DOMINIO.vercel.app/interes-compuesto/">
+<meta property="og:image" content="https://TU-DOMINIO.vercel.app/og-image.png">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta id="og-site" property="og:site_name" content="Herramientas Financieras Gratis">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta id="tw-title" name="twitter:title" content="Calculadora de Interés Compuesto Gratis">
+<meta id="tw-desc" name="twitter:description" content="Mira cómo crece tu dinero, año a año. Gratis y sin registro.">
+
+<meta name="theme-color" content="#0F1B2B">
+
+<!-- ===== Schema.org: WebApplication + FAQ (rich results) ===== -->
+<script type="application/ld+json" id="schema-app">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Interés Compuesto",
+  "url": "https://TU-DOMINIO.vercel.app/interes-compuesto/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Calculadora gratuita de interés compuesto que muestra el crecimiento de tu dinero año a año, separando aportes de intereses generados.",
+  "inLanguage": ["es", "en"]
+}
+</script>
+<script type="application/ld+json" id="schema-faq">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es el interés compuesto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es el interés que se calcula no solo sobre el capital inicial, sino también sobre los intereses acumulados en periodos anteriores, generando un crecimiento exponencial con el tiempo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se calcula el interés compuesto con aportes mensuales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se suma el aporte periódico al saldo y luego se aplica la tasa de interés correspondiente al periodo de capitalización, repitiendo el proceso durante todo el plazo."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#0F1B2B;
+    --paper:#F5EFE3;
+    --gold:#C9A961;
+    --sage:#4A7C6E;
+    --terracotta:#8B4B3B;
+    --paper-dim:#E8DFCC;
+    --ink-soft:rgba(245,239,227,0.62);
+    --ink-faint:rgba(245,239,227,0.32);
+    --space-xs:8px; --space-sm:14px; --space-md:22px; --space-lg:32px; --space-xl:48px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    padding:clamp(16px,4vw,24px) 16px 60px;
+    line-height:1.5;
+  }
+
+  .wrap{max-width:960px; margin:0 auto;}
+
+  /* ---- Top bar ---- */
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .home-link{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    color:var(--ink-faint);
+    text-decoration:none;
+    transition:color 0.15s ease;
+  }
+  .home-link:hover{color:var(--gold);}
+
+  /* ---- Lang switcher ---- */
+  .lang-switch{
+    display:flex;
+    justify-content:flex-end;
+    gap:4px;
+  }
+  .lang-btn{
+    background:none;
+    border:1px solid rgba(245,239,227,0.16);
+    color:var(--ink-soft);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    padding:6px 12px;
+    border-radius:3px;
+    cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .lang-btn.active{
+    background:var(--gold);
+    color:var(--ink);
+    border-color:var(--gold);
+    font-weight:700;
+  }
+  .lang-btn:not(.active):hover{
+    border-color:var(--gold);
+    color:var(--gold);
+  }
+
+  /* ---- Header ---- */
+  header{
+    text-align:center;
+    padding:clamp(20px,5vw,32px) 0 clamp(28px,6vw,40px);
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(28px,6.5vw,52px);
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+  h1 em{
+    font-style:italic;
+    font-weight:300;
+    color:var(--gold);
+  }
+  .sub{
+    color:var(--ink-soft);
+    max-width:480px;
+    margin:16px auto 0;
+    font-size:clamp(14px,3.2vw,15px);
+  }
+
+  /* ---- Layout ---- */
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:clamp(16px,3vw,28px);
+  }
+  @media (max-width:760px){
+    .grid{grid-template-columns:1fr;}
+  }
+
+  .panel{
+    background:rgba(245,239,227,0.04);
+    border:1px solid rgba(245,239,227,0.1);
+    border-radius:4px;
+    padding:clamp(20px,4vw,28px);
+  }
+
+  /* ---- Form ---- */
+  .field{margin-bottom:22px;}
+  .field:last-child{margin-bottom:0;}
+  label{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+    font-weight:500;
+    gap:8px;
+  }
+  label .val{
+    font-family:'Space Mono',monospace;
+    color:var(--gold);
+    font-size:13px;
+    text-align:right;
+    white-space:nowrap;
+  }
+  input[type="range"]{
+    -webkit-appearance:none;
+    appearance:none;
+    width:100%;
+    height:28px;
+    background:transparent;
+    outline:none;
+    touch-action:pan-y;
+  }
+  input[type="range"]::-webkit-slider-runnable-track{
+    height:3px;
+    background:rgba(245,239,227,0.2);
+    border-radius:2px;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none;
+    margin-top:-9px;
+    width:21px; height:21px;
+    border-radius:50%;
+    background:var(--gold);
+    cursor:pointer;
+    border:3px solid var(--ink);
+    box-shadow:0 0 0 1px var(--gold);
+  }
+  input[type="range"]::-moz-range-track{
+    height:3px;
+    background:rgba(245,239,227,0.2);
+    border-radius:2px;
+  }
+  input[type="range"]::-moz-range-thumb{
+    width:21px; height:21px;
+    border-radius:50%;
+    background:var(--gold);
+    cursor:pointer;
+    border:3px solid var(--ink);
+  }
+
+  .num-input{
+    display:flex;
+    align-items:center;
+    background:rgba(245,239,227,0.05);
+    border:1px solid rgba(245,239,227,0.14);
+    border-radius:3px;
+    overflow:hidden;
+  }
+  .num-input span{
+    padding:12px;
+    font-family:'Space Mono',monospace;
+    color:var(--ink-faint);
+    font-size:14px;
+    border-right:1px solid rgba(245,239,227,0.1);
+    flex-shrink:0;
+  }
+  .num-input input[type="number"]{
+    flex:1;
+    min-width:0;
+    background:none;
+    border:none;
+    outline:none;
+    color:var(--paper);
+    font-family:'Space Mono',monospace;
+    font-size:16px;
+    padding:12px;
+    width:100%;
+  }
+  /* iOS zoom prevention: font-size >=16px already set above */
+
+  select{
+    width:100%;
+    background:rgba(245,239,227,0.05);
+    border:1px solid rgba(245,239,227,0.14);
+    border-radius:3px;
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    padding:12px;
+    outline:none;
+    cursor:pointer;
+    -webkit-appearance:none;
+    appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23C9A961'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+  }
+  select option{background:var(--ink); color:var(--paper);}
+
+  /* ---- Result panel ---- */
+  .result-panel{
+    display:flex;
+    flex-direction:column;
+  }
+  .result-label{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin-bottom:6px;
+  }
+  .result-figure{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(30px,7vw,48px);
+    color:var(--gold);
+    letter-spacing:-0.01em;
+    line-height:1;
+    margin-bottom:24px;
+    word-break:break-word;
+  }
+
+  .breakdown{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:24px;
+  }
+  .b-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:13px;
+    padding-bottom:10px;
+    border-bottom:1px solid rgba(245,239,227,0.08);
+    gap:8px;
+  }
+  .b-row .b-label{color:var(--ink-soft); display:flex; align-items:center; gap:8px;}
+  .b-row .dot{width:8px; height:8px; border-radius:50%; flex-shrink:0;}
+  .b-row .b-val{font-family:'Space Mono',monospace; color:var(--paper); text-align:right;}
+
+  /* ---- Stacked growth chart ---- */
+  .strata{
+    flex:1;
+    display:flex;
+    align-items:flex-end;
+    gap:3px;
+    min-height:140px;
+    padding-top:10px;
+  }
+  .stratum-col{
+    flex:1;
+    display:flex;
+    flex-direction:column-reverse;
+    height:100%;
+    border-radius:1px;
+    overflow:hidden;
+    min-width:3px;
+  }
+  .layer{
+    width:100%;
+    transition:height 0.6s cubic-bezier(.16,1,.3,1);
+  }
+  .layer.aporte{background:var(--terracotta);}
+  .layer.interes{background:var(--sage);}
+
+  .chart-caption{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    color:var(--ink-faint);
+    text-align:center;
+    margin-top:10px;
+    letter-spacing:0.04em;
+  }
+
+  /* ---- SEO content block (crawlable, visible) ---- */
+  .seo-content{
+    margin-top:var(--space-xl);
+    padding-top:var(--space-lg);
+    border-top:1px solid rgba(245,239,227,0.08);
+  }
+  .seo-content h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(20px,4vw,26px);
+    margin-bottom:14px;
+    color:var(--paper);
+  }
+  .seo-content p{
+    color:var(--ink-soft);
+    font-size:14px;
+    max-width:680px;
+    margin-bottom:16px;
+  }
+  .faq-item{margin-bottom:20px;}
+  .faq-item h3{
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--paper);
+  }
+  .faq-item p{margin-bottom:0; font-size:13.5px;}
+
+  /* ---- Footer / CTA ---- */
+  footer{
+    text-align:center;
+    margin-top:var(--space-xl);
+    padding-top:var(--space-lg);
+    border-top:1px solid rgba(245,239,227,0.08);
+  }
+  .cta{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+    max-width:420px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .coffee-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--gold);
+    color:var(--ink);
+    font-weight:600;
+    font-size:14px;
+    padding:14px 26px;
+    border-radius:3px;
+    text-decoration:none;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+    min-height:44px;
+  }
+  .coffee-btn:hover{
+    transform:translateY(-1px);
+    box-shadow:0 6px 20px rgba(201,169,97,0.25);
+  }
+  .footnote{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    color:var(--ink-faint);
+    margin-top:20px;
+  }
+
+  /* ---- Accessibility ---- */
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:2px;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .layer{transition:none;}
+    .coffee-btn{transition:none;}
+  }
+
+  /* ---- Small phones ---- */
+  @media (max-width:380px){
+    .panel{padding:16px;}
+    .num-input span{padding:10px 8px; font-size:13px;}
+    .num-input input[type="number"]{padding:10px 8px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="/" class="home-link" data-i18n="home_link">← Todas las herramientas</a>
+    <div class="lang-switch" role="group" aria-label="Language selector">
+      <button class="lang-btn" data-lang="es" id="btn-es">ES</button>
+      <button class="lang-btn" data-lang="en" id="btn-en">EN</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="eyebrow" data-i18n="eyebrow">Interés compuesto</div>
+    <h1 data-i18n-html="title">Mira cómo <em>crece</em><br>tu dinero, año a año</h1>
+    <p class="sub" data-i18n="subtitle">Ajusta los números y observa cuánto de tu resultado final viene de lo que aportaste y cuánto lo generó el interés por sí solo.</p>
+  </header>
+
+  <main>
+  <div class="grid">
+    <!-- FORM -->
+    <section class="panel" aria-label="Calculator inputs">
+      <div class="field">
+        <label for="capital"><span data-i18n="lbl_capital">Capital inicial</span> <span class="val" id="v-capital">$1.000.000</span></label>
+        <div class="num-input">
+          <span>$</span>
+          <input type="number" id="capital" value="1000000" min="0" step="10000" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="aporte"><span data-i18n="lbl_aporte">Aporte mensual</span> <span class="val" id="v-aporte">$100.000</span></label>
+        <div class="num-input">
+          <span>$</span>
+          <input type="number" id="aporte" value="100000" min="0" step="10000" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="tasa"><span data-i18n="lbl_tasa">Tasa de interés anual</span> <span class="val" id="v-tasa">10%</span></label>
+        <input type="range" id="tasa" min="0" max="30" step="0.5" value="10">
+      </div>
+
+      <div class="field">
+        <label for="anios"><span data-i18n="lbl_anios">Plazo</span> <span class="val" id="v-anios">10 años</span></label>
+        <input type="range" id="anios" min="1" max="40" step="1" value="10">
+      </div>
+
+      <div class="field">
+        <label for="frecuencia" data-i18n="lbl_freq">Frecuencia de capitalización</label>
+        <select id="frecuencia">
+          <option value="12" data-i18n="freq_monthly">Mensual</option>
+          <option value="4" data-i18n="freq_quarterly">Trimestral</option>
+          <option value="1" data-i18n="freq_yearly">Anual</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section class="panel result-panel" aria-label="Results" aria-live="polite">
+      <div class="result-label" data-i18n="result_label">Resultado final</div>
+      <div class="result-figure" id="resultado">$0</div>
+
+      <div class="breakdown">
+        <div class="b-row">
+          <span class="b-label"><span class="dot" style="background:var(--terracotta)"></span><span data-i18n="total_contributed">Total aportado</span></span>
+          <span class="b-val" id="total-aportado">$0</span>
+        </div>
+        <div class="b-row">
+          <span class="b-label"><span class="dot" style="background:var(--sage)"></span><span data-i18n="total_interest">Interés generado</span></span>
+          <span class="b-val" id="total-interes">$0</span>
+        </div>
+      </div>
+
+      <div class="strata" id="strata" role="img" aria-label="Gráfico de crecimiento por año"></div>
+      <div class="chart-caption" data-i18n="chart_caption">CRECIMIENTO POR AÑO — APORTE vs. INTERÉS</div>
+    </section>
+  </div>
+
+  <!-- SEO crawlable content -->
+  <section class="seo-content">
+    <h2 data-i18n="seo_h2_1">¿Qué es el interés compuesto?</h2>
+    <p data-i18n="seo_p_1">El interés compuesto es el interés que se calcula sobre el capital inicial y también sobre los intereses acumulados de periodos anteriores. A diferencia del interés simple, el compuesto genera un crecimiento exponencial: cuanto más tiempo dejes tu dinero invertido, mayor será el efecto multiplicador.</p>
+
+    <div class="faq-item">
+      <h3 data-i18n="faq_q1">¿Cómo se calcula el interés compuesto con aportes mensuales?</h3>
+      <p data-i18n="faq_a1">Cada mes se suma el aporte al saldo acumulado. Luego, según la frecuencia de capitalización elegida (mensual, trimestral o anual), se aplica la tasa de interés correspondiente sobre ese saldo. El proceso se repite durante todo el plazo definido.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq_q2">¿Por qué el interés compuesto crece más rápido con el tiempo?</h3>
+      <p data-i18n="faq_a2">Porque los intereses generados en un periodo se suman al capital y, a su vez, generan nuevos intereses en el periodo siguiente. Este efecto acumulativo ("interés sobre interés") es lo que hace que el crecimiento se acelere mientras más años pase el dinero invertido.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <p class="cta" data-i18n="cta_text">¿Te sirvió esta calculadora? Si te ahorró tiempo (o te motivó a empezar a ahorrar), invítame un café.</p>
+    <a href="https://ko-fi.com/TU_USUARIO" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
+    <p class="footnote" data-i18n="disclaimer">Herramienta educativa. No constituye asesoría financiera.</p>
+  </footer>
+
+</div>
+
+<script>
+  // ===================== i18n =====================
+  const translations = {
+    es: {
+      home_link: "← Todas las herramientas",
+      eyebrow: "Interés compuesto",
+      subtitle: "Ajusta los números y observa cuánto de tu resultado final viene de lo que aportaste y cuánto lo generó el interés por sí solo.",
+      lbl_capital: "Capital inicial",
+      lbl_aporte: "Aporte mensual",
+      lbl_tasa: "Tasa de interés anual",
+      lbl_anios: "Plazo",
+      lbl_freq: "Frecuencia de capitalización",
+      freq_monthly: "Mensual",
+      freq_quarterly: "Trimestral",
+      freq_yearly: "Anual",
+      result_label: "Resultado final",
+      total_contributed: "Total aportado",
+      total_interest: "Interés generado",
+      chart_caption: "CRECIMIENTO POR AÑO — APORTE vs. INTERÉS",
+      seo_h2_1: "¿Qué es el interés compuesto?",
+      seo_p_1: "El interés compuesto es el interés que se calcula sobre el capital inicial y también sobre los intereses acumulados de periodos anteriores. A diferencia del interés simple, el compuesto genera un crecimiento exponencial: cuanto más tiempo dejes tu dinero invertido, mayor será el efecto multiplicador.",
+      faq_q1: "¿Cómo se calcula el interés compuesto con aportes mensuales?",
+      faq_a1: "Cada mes se suma el aporte al saldo acumulado. Luego, según la frecuencia de capitalización elegida (mensual, trimestral o anual), se aplica la tasa de interés correspondiente sobre ese saldo. El proceso se repite durante todo el plazo definido.",
+      faq_q2: "¿Por qué el interés compuesto crece más rápido con el tiempo?",
+      faq_a2: "Porque los intereses generados en un periodo se suman al capital y, a su vez, generan nuevos intereses en el periodo siguiente. Este efecto acumulativo (\"interés sobre interés\") es lo que hace que el crecimiento se acelere mientras más años pase el dinero invertido.",
+      cta_text: "¿Te sirvió esta calculadora? Si te ahorró tiempo (o te motivó a empezar a ahorrar), invítame un café.",
+      cta_btn: "Invítame un café",
+      disclaimer: "Herramienta educativa. No constituye asesoría financiera.",
+      years_suffix: "años",
+      year_suffix: "año",
+      docTitle: "Calculadora de Interés Compuesto Gratis — Cuánto Crece tu Dinero | 2026",
+      docDesc: "Calculadora de interés compuesto gratuita y fácil. Simula tu ahorro o inversión mes a mes, ve cuánto genera el interés vs. tus aportes. Sin registro.",
+      titleHtml: "Mira cómo <em>crece</em><br>tu dinero, año a año",
+      locale: "es-CO",
+      htmlLang: "es"
+    },
+    en: {
+      home_link: "← All tools",
+      eyebrow: "Compound interest",
+      subtitle: "Adjust the numbers and see how much of your final result comes from what you contributed versus what interest generated on its own.",
+      lbl_capital: "Initial capital",
+      lbl_aporte: "Monthly contribution",
+      lbl_tasa: "Annual interest rate",
+      lbl_anios: "Term",
+      lbl_freq: "Compounding frequency",
+      freq_monthly: "Monthly",
+      freq_quarterly: "Quarterly",
+      freq_yearly: "Yearly",
+      result_label: "Final result",
+      total_contributed: "Total contributed",
+      total_interest: "Interest earned",
+      chart_caption: "GROWTH PER YEAR — CONTRIBUTION vs. INTEREST",
+      seo_h2_1: "What is compound interest?",
+      seo_p_1: "Compound interest is interest calculated on the initial principal and also on the accumulated interest from previous periods. Unlike simple interest, compound interest grows exponentially: the longer you leave your money invested, the stronger the multiplier effect becomes.",
+      faq_q1: "How is compound interest calculated with monthly contributions?",
+      faq_a1: "Each month, the contribution is added to the accumulated balance. Then, depending on the chosen compounding frequency (monthly, quarterly, or yearly), the interest rate is applied to that balance. This process repeats for the entire defined term.",
+      faq_q2: "Why does compound interest grow faster over time?",
+      faq_a2: "Because the interest earned in one period is added to the principal and, in turn, generates new interest in the next period. This cumulative effect (\"interest on interest\") is what makes growth accelerate the longer the money stays invested.",
+      cta_text: "Did this calculator help you? If it saved you time (or motivated you to start saving), buy me a coffee.",
+      cta_btn: "Buy me a coffee",
+      disclaimer: "Educational tool. Not financial advice.",
+      years_suffix: "years",
+      year_suffix: "year",
+      docTitle: "Free Compound Interest Calculator — See How Your Money Grows | 2026",
+      docDesc: "Free, easy compound interest calculator. Simulate your savings or investment month by month and see how much comes from interest vs. your contributions.",
+      titleHtml: "Watch your money <em>grow</em><br>year after year",
+      locale: "en-US",
+      htmlLang: "en"
+    }
+  };
+
+  function detectLang(){
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved && translations[saved]) return saved;
+    const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    return nav.startsWith('es') ? 'es' : 'en';
+  }
+
+  let currentLang = detectLang();
+
+  function applyLang(lang){
+    currentLang = lang;
+    localStorage.setItem('preferred-lang', lang);
+    const t = translations[lang];
+
+    document.documentElement.lang = t.htmlLang;
+    document.getElementById('doc-title').textContent = t.docTitle;
+    document.title = t.docTitle;
+    document.getElementById('meta-desc').setAttribute('content', t.docDesc);
+    document.getElementById('og-title').setAttribute('content', t.docTitle);
+    document.getElementById('og-desc').setAttribute('content', t.docDesc);
+    document.getElementById('tw-title').setAttribute('content', t.docTitle);
+    document.getElementById('tw-desc').setAttribute('content', t.docDesc);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (key === 'title') el.innerHTML = t.titleHtml;
+    });
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    calcular(); // re-render numbers with correct locale + suffix
+  }
+
+  document.getElementById('btn-es').addEventListener('click', () => applyLang('es'));
+  document.getElementById('btn-en').addEventListener('click', () => applyLang('en'));
+
+  // ===================== Calculator =====================
+  const capitalInput = document.getElementById('capital');
+  const aporteInput = document.getElementById('aporte');
+  const tasaInput = document.getElementById('tasa');
+  const aniosInput = document.getElementById('anios');
+  const freqInput = document.getElementById('frecuencia');
+
+  function fmt(n){
+    const locale = translations[currentLang].locale;
+    return new Intl.NumberFormat(locale, { style:'currency', currency:'USD', maximumFractionDigits:0 })
+      .format(Math.round(n))
+      .replace('USD','$').replace('US$','$');
+  }
+
+  function calcular(){
+    const capital = parseFloat(capitalInput.value) || 0;
+    const aporteMensual = parseFloat(aporteInput.value) || 0;
+    const tasaAnual = parseFloat(tasaInput.value) / 100;
+    const anios = parseInt(aniosInput.value);
+    const freq = parseInt(freqInput.value);
+    const t = translations[currentLang];
+
+    document.getElementById('v-capital').textContent = fmt(capital);
+    document.getElementById('v-aporte').textContent = fmt(aporteMensual);
+    document.getElementById('v-tasa').textContent = tasaInput.value + '%';
+    document.getElementById('v-anios').textContent = anios + ' ' + (anios === 1 ? t.year_suffix : t.years_suffix);
+
+    const rPerPeriod = tasaAnual / freq;
+    const monthsPerPeriod = 12 / freq;
+
+    let saldo = capital;
+    let totalAportado = capital;
+    const yearlyData = [];
+    let months = 0;
+
+    for (let y = 1; y <= anios; y++){
+      for (let m = 1; m <= 12; m++){
+        saldo += aporteMensual;
+        totalAportado += aporteMensual;
+        months++;
+        if (months % monthsPerPeriod === 0){
+          saldo *= (1 + rPerPeriod);
+        }
+      }
+      yearlyData.push({ year:y, saldo, aportado:totalAportado, interes: saldo - totalAportado });
+    }
+
+    const totalInteres = saldo - totalAportado;
+
+    document.getElementById('resultado').textContent = fmt(saldo);
+    document.getElementById('total-aportado').textContent = fmt(totalAportado);
+    document.getElementById('total-interes').textContent = fmt(totalInteres);
+
+    renderChart(yearlyData);
+  }
+
+  function renderChart(data){
+    const container = document.getElementById('strata');
+    container.innerHTML = '';
+    const maxSaldo = Math.max(...data.map(d => d.saldo), 1);
+    const step = Math.max(1, Math.ceil(data.length / 24));
+    const shown = data.filter((d,i) => i % step === 0 || i === data.length - 1);
+
+    shown.forEach(d => {
+      const col = document.createElement('div');
+      col.className = 'stratum-col';
+
+      const aporteH = (d.aportado / maxSaldo) * 100;
+      const interesH = (d.interes / maxSaldo) * 100;
+
+      const layerAporte = document.createElement('div');
+      layerAporte.className = 'layer aporte';
+      layerAporte.style.height = Math.max(0, aporteH) + '%';
+
+      const layerInteres = document.createElement('div');
+      layerInteres.className = 'layer interes';
+      layerInteres.style.height = Math.max(0, interesH) + '%';
+
+      col.appendChild(layerAporte);
+      col.appendChild(layerInteres);
+      col.title = 'Año ' + d.year + ': ' + fmt(d.saldo);
+      container.appendChild(col);
+    });
+  }
+
+  [capitalInput, aporteInput, tasaInput, aniosInput, freqInput].forEach(el => {
+    el.addEventListener('input', calcular);
+  });
+
+  // Init
+  applyLang(currentLang);
+</script>
+</body>
+</html>

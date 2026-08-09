@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ===== SEO: Primary meta ===== -->
+<title id="doc-title">Herramientas Financieras Gratis — Calculadoras Online | 2026</title>
+<meta id="meta-desc" name="description" content="Calculadoras financieras y de salud gratuitas: interés compuesto, préstamos, IMC y más. Rápidas, sin registro, en español e inglés.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Herramientas Financieras Gratis">
+<link id="canonical" rel="canonical" href="https://TU-DOMINIO.vercel.app/">
+
+<link rel="alternate" hreflang="es" href="https://TU-DOMINIO.vercel.app/">
+<link rel="alternate" hreflang="en" href="https://TU-DOMINIO.vercel.app/">
+<link rel="alternate" hreflang="x-default" href="https://TU-DOMINIO.vercel.app/">
+
+<meta id="og-title" property="og:title" content="Herramientas Financieras Gratis — Calculadoras Online">
+<meta id="og-desc" property="og:description" content="Calculadoras financieras y de salud gratuitas, rápidas y sin registro.">
+<meta property="og:type" content="website">
+<meta id="og-url" property="og:url" content="https://TU-DOMINIO.vercel.app/">
+<meta property="og:image" content="https://TU-DOMINIO.vercel.app/og-image.png">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta id="og-site" property="og:site_name" content="Herramientas Financieras Gratis">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta id="tw-title" name="twitter:title" content="Herramientas Financieras Gratis">
+<meta id="tw-desc" name="twitter:description" content="Calculadoras gratuitas, rápidas y sin registro.">
+
+<meta name="theme-color" content="#0F1B2B">
+
+<script type="application/ld+json" id="schema-site">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Herramientas Financieras Gratis",
+  "url": "https://TU-DOMINIO.vercel.app/",
+  "inLanguage": ["es", "en"]
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#0F1B2B;
+    --paper:#F5EFE3;
+    --gold:#C9A961;
+    --sage:#4A7C6E;
+    --terracotta:#8B4B3B;
+    --ink-soft:rgba(245,239,227,0.62);
+    --ink-faint:rgba(245,239,227,0.32);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    padding:clamp(16px,4vw,24px) 16px 60px;
+    line-height:1.5;
+  }
+
+  .wrap{max-width:960px; margin:0 auto;}
+
+  .topbar{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:8px;
+  }
+  .lang-switch{display:flex; gap:4px;}
+  .lang-btn{
+    background:none;
+    border:1px solid rgba(245,239,227,0.16);
+    color:var(--ink-soft);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    padding:6px 12px;
+    border-radius:3px;
+    cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .lang-btn.active{
+    background:var(--gold);
+    color:var(--ink);
+    border-color:var(--gold);
+    font-weight:700;
+  }
+  .lang-btn:not(.active):hover{border-color:var(--gold); color:var(--gold);}
+
+  header{
+    text-align:center;
+    padding:clamp(24px,6vw,44px) 0 clamp(32px,7vw,52px);
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(30px,7vw,54px);
+    letter-spacing:-0.01em;
+    line-height:1.06;
+  }
+  h1 em{font-style:italic; font-weight:300; color:var(--gold);}
+  .sub{
+    color:var(--ink-soft);
+    max-width:480px;
+    margin:16px auto 0;
+    font-size:clamp(14px,3.2vw,15px);
+  }
+
+  /* ---- Tool cards grid ---- */
+  .tools-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:16px;
+  }
+  @media (max-width:600px){
+    .tools-grid{grid-template-columns:1fr;}
+  }
+
+  .tool-card{
+    display:flex;
+    flex-direction:column;
+    background:rgba(245,239,227,0.04);
+    border:1px solid rgba(245,239,227,0.1);
+    border-radius:4px;
+    padding:24px;
+    text-decoration:none;
+    color:var(--paper);
+    transition:border-color 0.15s ease, transform 0.15s ease;
+    min-height:150px;
+  }
+  .tool-card:hover{
+    border-color:var(--gold);
+    transform:translateY(-2px);
+  }
+  .tool-card.disabled{
+    opacity:0.4;
+    pointer-events:none;
+  }
+  .tool-icon{
+    font-size:22px;
+    margin-bottom:12px;
+  }
+  .tool-name{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:18px;
+    margin-bottom:8px;
+  }
+  .tool-desc{
+    font-size:13px;
+    color:var(--ink-soft);
+    flex:1;
+  }
+  .tool-tag{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-top:14px;
+  }
+  .tool-tag.soon{color:var(--ink-faint);}
+
+  footer{
+    text-align:center;
+    margin-top:56px;
+    padding-top:32px;
+    border-top:1px solid rgba(245,239,227,0.08);
+  }
+  .cta{
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+    max-width:420px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .coffee-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--gold);
+    color:var(--ink);
+    font-weight:600;
+    font-size:14px;
+    padding:14px 26px;
+    border-radius:3px;
+    text-decoration:none;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="lang-switch" role="group" aria-label="Language selector">
+      <button class="lang-btn" data-lang="es" id="btn-es">ES</button>
+      <button class="lang-btn" data-lang="en" id="btn-en">EN</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="eyebrow" data-i18n="eyebrow">Caja de herramientas</div>
+    <h1 data-i18n-html="title">Calculadoras <em>gratis</em><br>que resuelven algo hoy</h1>
+    <p class="sub" data-i18n="subtitle">Sin registro, sin descargas, sin letra pequeña. Elige una herramienta y úsala directamente.</p>
+  </header>
+
+  <main class="tools-grid">
+    <a href="/interes-compuesto/" class="tool-card">
+      <div class="tool-icon">📈</div>
+      <div class="tool-name" data-i18n="tool1_name">Interés Compuesto</div>
+      <div class="tool-desc" data-i18n="tool1_desc">Simula cuánto crece tu ahorro o inversión, año a año.</div>
+      <div class="tool-tag" data-i18n="tag_available">Disponible</div>
+    </a>
+
+    <a href="#" class="tool-card disabled">
+      <div class="tool-icon">⚖️</div>
+      <div class="tool-name" data-i18n="tool2_name">IMC y Calorías</div>
+      <div class="tool-desc" data-i18n="tool2_desc">Calcula tu índice de masa corporal y tu gasto calórico diario.</div>
+      <div class="tool-tag soon" data-i18n="tag_soon">Próximamente</div>
+    </a>
+
+    <a href="#" class="tool-card disabled">
+      <div class="tool-icon">🏦</div>
+      <div class="tool-name" data-i18n="tool3_name">Cuota de Préstamo</div>
+      <div class="tool-desc" data-i18n="tool3_desc">Calcula la cuota mensual de un crédito según monto, tasa y plazo.</div>
+      <div class="tool-tag soon" data-i18n="tag_soon">Próximamente</div>
+    </a>
+
+    <a href="#" class="tool-card disabled">
+      <div class="tool-icon">🧾</div>
+      <div class="tool-name" data-i18n="tool4_name">Dividir Cuenta</div>
+      <div class="tool-desc" data-i18n="tool4_desc">Reparte una cuenta entre varias personas, con propina incluida.</div>
+      <div class="tool-tag soon" data-i18n="tag_soon">Próximamente</div>
+    </a>
+  </main>
+
+  <footer>
+    <p class="cta" data-i18n="cta_text">¿Te sirvieron estas herramientas? Si te ahorraron tiempo, invítame un café.</p>
+    <a href="https://ko-fi.com/TU_USUARIO" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
+  </footer>
+
+</div>
+
+<script>
+  const translations = {
+    es: {
+      eyebrow: "Caja de herramientas",
+      subtitle: "Sin registro, sin descargas, sin letra pequeña. Elige una herramienta y úsala directamente.",
+      titleHtml: "Calculadoras <em>gratis</em><br>que resuelven algo hoy",
+      tool1_name: "Interés Compuesto",
+      tool1_desc: "Simula cuánto crece tu ahorro o inversión, año a año.",
+      tool2_name: "IMC y Calorías",
+      tool2_desc: "Calcula tu índice de masa corporal y tu gasto calórico diario.",
+      tool3_name: "Cuota de Préstamo",
+      tool3_desc: "Calcula la cuota mensual de un crédito según monto, tasa y plazo.",
+      tool4_name: "Dividir Cuenta",
+      tool4_desc: "Reparte una cuenta entre varias personas, con propina incluida.",
+      tag_available: "Disponible",
+      tag_soon: "Próximamente",
+      cta_text: "¿Te sirvieron estas herramientas? Si te ahorraron tiempo, invítame un café.",
+      cta_btn: "Invítame un café",
+      docTitle: "Herramientas Financieras Gratis — Calculadoras Online | 2026",
+      docDesc: "Calculadoras financieras y de salud gratuitas: interés compuesto, préstamos, IMC y más. Rápidas, sin registro, en español e inglés.",
+      htmlLang: "es"
+    },
+    en: {
+      eyebrow: "Toolbox",
+      subtitle: "No sign-up, no downloads, no fine print. Pick a tool and use it right away.",
+      titleHtml: "Free calculators<br>that solve something <em>today</em>",
+      tool1_name: "Compound Interest",
+      tool1_desc: "Simulate how your savings or investment grow, year by year.",
+      tool2_name: "BMI and Calories",
+      tool2_desc: "Calculate your body mass index and daily calorie needs.",
+      tool3_name: "Loan Payment",
+      tool3_desc: "Calculate your monthly loan payment based on amount, rate, and term.",
+      tool4_name: "Split the Bill",
+      tool4_desc: "Split a bill between several people, tip included.",
+      tag_available: "Available",
+      tag_soon: "Coming soon",
+      cta_text: "Did these tools help you? If they saved you time, buy me a coffee.",
+      cta_btn: "Buy me a coffee",
+      docTitle: "Free Financial Tools — Online Calculators | 2026",
+      docDesc: "Free financial and health calculators: compound interest, loans, BMI and more. Fast, no sign-up, in Spanish and English.",
+      htmlLang: "en"
+    }
+  };
+
+  function detectLang(){
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved && translations[saved]) return saved;
+    const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    return nav.startsWith('es') ? 'es' : 'en';
+  }
+
+  function applyLang(lang){
+    localStorage.setItem('preferred-lang', lang);
+    const t = translations[lang];
+
+    document.documentElement.lang = t.htmlLang;
+    document.getElementById('doc-title').textContent = t.docTitle;
+    document.title = t.docTitle;
+    document.getElementById('meta-desc').setAttribute('content', t.docDesc);
+    document.getElementById('og-title').setAttribute('content', t.docTitle);
+    document.getElementById('og-desc').setAttribute('content', t.docDesc);
+    document.getElementById('tw-title').setAttribute('content', t.docTitle);
+    document.getElementById('tw-desc').setAttribute('content', t.docDesc);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (key === 'title') el.innerHTML = t.titleHtml;
+    });
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+
+  document.getElementById('btn-es').addEventListener('click', () => applyLang('es'));
+  document.getElementById('btn-en').addEventListener('click', () => applyLang('en'));
+
+  applyLang(detectLang());
+</script>
+</body>
+</html>
