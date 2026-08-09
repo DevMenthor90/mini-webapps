@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ===== SEO: Primary meta ===== -->
+<title id="doc-title">TV en Vivo Gratis — Canales Oficiales de Noticias | 2026</title>
+<meta id="meta-desc" name="description" content="Mira TV en vivo gratis: NASA TV, France 24, DW News y más, vía el canal oficial de YouTube Live de cada emisora. 100% legal, sin registro.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Herramientas Financieras Gratis">
+<link id="canonical" rel="canonical" href="https://mini-webapps-six.vercel.app/tv-en-vivo/">
+
+<link rel="alternate" hreflang="es" href="https://mini-webapps-six.vercel.app/tv-en-vivo/">
+<link rel="alternate" hreflang="en" href="https://mini-webapps-six.vercel.app/tv-en-vivo/">
+<link rel="alternate" hreflang="x-default" href="https://mini-webapps-six.vercel.app/tv-en-vivo/">
+
+<meta id="og-title" property="og:title" content="TV en Vivo Gratis — Canales Oficiales de Noticias">
+<meta id="og-desc" property="og:description" content="NASA TV, France 24, DW News y más, en vivo vía YouTube oficial. Gratis, legal, sin registro.">
+<meta property="og:type" content="website">
+<meta id="og-url" property="og:url" content="https://mini-webapps-six.vercel.app/tv-en-vivo/">
+<meta property="og:image" content="https://mini-webapps-six.vercel.app/og-image.png">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta id="og-site" property="og:site_name" content="Herramientas Financieras Gratis">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta id="tw-title" name="twitter:title" content="TV en Vivo Gratis">
+<meta id="tw-desc" name="twitter:description" content="Canales oficiales de noticias en vivo, gratis y legal.">
+
+<meta name="theme-color" content="#0F1B2B">
+
+<script type="application/ld+json" id="schema-app">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "TV en Vivo Gratis",
+  "url": "https://mini-webapps-six.vercel.app/tv-en-vivo/",
+  "applicationCategory": "EntertainmentApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "Selección curada de canales de noticias y servicio público que transmiten oficialmente en vivo y gratis vía YouTube Live.",
+  "inLanguage": ["es", "en"]
+}
+</script>
+<script type="application/ld+json" id="schema-faq">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué es esta página de TV en vivo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es un panel curado que reúne, en un solo lugar, los reproductores oficiales de YouTube Live de canales de noticias y servicio público que transmiten gratis las 24 horas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es legal ver estos canales aquí?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Cada canal se muestra usando el reproductor embebido oficial que YouTube provee para ese propósito exacto, cargando directamente el video del dueño del canal. Este sitio no aloja, copia ni redistribuye ningún video."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué solo aparecen estos canales?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Solo se incluyen canales de noticias o servicio público que transmiten oficial y gratuitamente en su propio canal de YouTube. No se enlazan listas IPTV de terceros ni retransmisiones no oficiales de canales privados con derechos de autor."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#0F1B2B;
+    --paper:#F5EFE3;
+    --gold:#C9A961;
+    --sage:#4A7C6E;
+    --terracotta:#8B4B3B;
+    --paper-dim:#E8DFCC;
+    --ink-soft:rgba(245,239,227,0.62);
+    --ink-faint:rgba(245,239,227,0.32);
+    --space-xs:8px; --space-sm:14px; --space-md:22px; --space-lg:32px; --space-xl:48px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    padding:clamp(16px,4vw,24px) 16px 60px;
+    line-height:1.5;
+  }
+
+  .wrap{max-width:960px; margin:0 auto;}
+
+  .topbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:10px;}
+  .home-link{font-family:'Space Mono',monospace; font-size:12px; color:var(--ink-faint); text-decoration:none; transition:color 0.15s ease;}
+  .home-link:hover{color:var(--gold);}
+
+  .lang-switch{display:flex; justify-content:flex-end; gap:4px;}
+  .lang-btn{
+    background:none; border:1px solid rgba(245,239,227,0.16); color:var(--ink-soft);
+    font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.06em;
+    padding:6px 12px; border-radius:3px; cursor:pointer; transition:all 0.15s ease;
+  }
+  .lang-btn.active{background:var(--gold); color:var(--ink); border-color:var(--gold); font-weight:700;}
+  .lang-btn:not(.active):hover{border-color:var(--gold); color:var(--gold);}
+
+  header{text-align:center; padding:clamp(20px,5vw,32px) 0 clamp(28px,6vw,40px);}
+  .eyebrow{font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:14px;}
+  h1{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(28px,6.5vw,52px); letter-spacing:-0.01em; line-height:1.08;}
+  h1 em{font-style:italic; font-weight:300; color:var(--gold);}
+  .sub{color:var(--ink-soft); max-width:520px; margin:16px auto 0; font-size:clamp(14px,3.2vw,15px);}
+
+  .panel{background:rgba(245,239,227,0.04); border:1px solid rgba(245,239,227,0.1); border-radius:4px; padding:clamp(20px,4vw,28px);}
+
+  /* ---- Player ---- */
+  .player-panel{margin-bottom:20px;}
+  .player-header{display:flex; align-items:center; gap:10px; margin-bottom:14px; flex-wrap:wrap;}
+  .player-title{font-family:'Fraunces',serif; font-weight:600; font-size:18px; color:var(--gold);}
+  .live-badge{
+    display:inline-flex; align-items:center; gap:6px;
+    font-family:'Space Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.04em;
+    color:#fff; background:var(--terracotta); padding:4px 10px; border-radius:3px;
+  }
+  .live-badge .dot{width:7px; height:7px; border-radius:50%; background:#fff; animation:blink 1.4s ease-in-out infinite;}
+  @keyframes blink{0%,100%{opacity:1;} 50%{opacity:0.25;}}
+  @media (prefers-reduced-motion:reduce){
+    .live-badge .dot{animation:none;}
+  }
+
+  .video-frame{
+    position:relative;
+    width:100%;
+    padding-top:56.25%;
+    background:#000;
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .video-frame iframe{
+    position:absolute; top:0; left:0; width:100%; height:100%; border:0;
+  }
+  .video-placeholder{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    flex-direction:column; gap:10px; color:var(--ink-faint); font-family:'Space Mono',monospace; font-size:13px; text-align:center; padding:20px;
+  }
+  .video-placeholder .icon{font-size:40px;}
+
+  /* ---- Channel grid ---- */
+  .channels-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; margin-top:20px;}
+  @media (max-width:600px){.channels-grid{grid-template-columns:1fr;}}
+
+  .channel-card{
+    display:flex; align-items:center; gap:12px;
+    background:rgba(245,239,227,0.04); border:1px solid rgba(245,239,227,0.1);
+    border-radius:4px; padding:14px; cursor:pointer; text-align:left;
+    color:var(--paper); font-family:inherit; transition:border-color 0.15s ease;
+    min-height:64px;
+  }
+  .channel-card:hover{border-color:var(--gold);}
+  .channel-card.active{border-color:var(--terracotta); background:rgba(139,75,59,0.14);}
+  .channel-icon{font-size:26px; flex-shrink:0;}
+  .channel-info{flex:1; min-width:0;}
+  .channel-name{font-size:14px; font-weight:600;}
+  .channel-meta{font-family:'Space Mono',monospace; font-size:10.5px; color:var(--ink-faint); margin-top:2px;}
+  .channel-live-mark{flex-shrink:0; font-size:10px; font-family:'Space Mono',monospace; color:var(--terracotta); font-weight:700;}
+
+  .seo-content{margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid rgba(245,239,227,0.08);}
+  .seo-content h2{font-family:'Fraunces',serif; font-weight:600; font-size:clamp(20px,4vw,26px); margin-bottom:14px; color:var(--paper);}
+  .seo-content p{color:var(--ink-soft); font-size:14px; max-width:680px; margin-bottom:16px;}
+  .faq-item{margin-bottom:20px;}
+  .faq-item h3{font-size:15px; font-weight:600; margin-bottom:6px; color:var(--paper);}
+  .faq-item p{margin-bottom:0; font-size:13.5px;}
+
+  .legal-box{
+    background:rgba(139,75,59,0.1);
+    border:1px solid rgba(139,75,59,0.4);
+    border-radius:4px;
+    padding:18px;
+    margin-top:var(--space-lg);
+  }
+  .legal-box h3{font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--terracotta); margin-bottom:10px;}
+  .legal-box p{font-size:13px; color:var(--ink-soft); margin-bottom:8px;}
+  .legal-box p:last-child{margin-bottom:0;}
+
+  footer{text-align:center; margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid rgba(245,239,227,0.08);}
+  .cta{font-size:14px; color:var(--ink-soft); margin-bottom:16px; max-width:420px; margin-left:auto; margin-right:auto;}
+  .coffee-btn{
+    display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--ink);
+    font-weight:600; font-size:14px; padding:14px 26px; border-radius:3px; text-decoration:none;
+    transition:transform 0.15s ease, box-shadow 0.15s ease; min-height:44px;
+  }
+  .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
+  .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:20px; max-width:600px; margin-left:auto; margin-right:auto;}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
+  @media (max-width:380px){
+    .panel{padding:16px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="/" class="home-link" data-i18n="home_link">← Todas las herramientas</a>
+    <div class="lang-switch" role="group" aria-label="Language selector">
+      <button class="lang-btn" data-lang="es" id="btn-es">ES</button>
+      <button class="lang-btn" data-lang="en" id="btn-en">EN</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="eyebrow" data-i18n="eyebrow">TV en vivo</div>
+    <h1 data-i18n-html="title">Canales oficiales <em>en vivo</em>,<br>gratis y legal</h1>
+    <p class="sub" data-i18n="subtitle">Noticias y contenido de servicio público, transmitidos directo desde el canal oficial de YouTube de cada emisora.</p>
+  </header>
+
+  <main>
+  <section class="panel player-panel" aria-label="Reproductor">
+    <div class="player-header">
+      <span class="player-title" id="player-title" data-i18n="select_channel">Selecciona un canal</span>
+      <span class="live-badge" id="live-badge" style="display:none;"><span class="dot"></span><span data-i18n="live_now">EN VIVO</span></span>
+    </div>
+    <div class="video-frame" id="video-frame">
+      <div class="video-placeholder" id="video-placeholder">
+        <div class="icon">📺</div>
+        <span data-i18n="placeholder_text">Elige un canal de la lista para comenzar a ver</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="Lista de canales">
+    <div class="channels-grid" id="channels-grid"></div>
+  </section>
+
+  <!-- SEO crawlable content -->
+  <section class="seo-content">
+    <h2 data-i18n="seo_h2_1">TV en vivo gratis, solo canales oficiales</h2>
+    <p data-i18n="seo_p_1">Esta página reúne canales de noticias y servicio público que transmiten oficialmente en vivo y de forma gratuita a través de su propio canal de YouTube. Cada reproductor usa el embed oficial de YouTube Live, cargando el video directamente desde el canal del dueño de los derechos.</p>
+
+    <div class="faq-item">
+      <h3 data-i18n="faq_q1">¿Qué es esta página de TV en vivo?</h3>
+      <p data-i18n="faq_a1">Es un panel curado que reúne, en un solo lugar, los reproductores oficiales de YouTube Live de canales de noticias y servicio público que transmiten gratis las 24 horas.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq_q2">¿Es legal ver estos canales aquí?</h3>
+      <p data-i18n="faq_a2">Sí. Cada canal se muestra usando el reproductor embebido oficial que YouTube provee para ese propósito exacto, cargando directamente el video del dueño del canal. Este sitio no aloja, copia ni redistribuye ningún video.</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="faq_q3">¿Por qué solo aparecen estos canales?</h3>
+      <p data-i18n="faq_a3">Solo se incluyen canales de noticias o servicio público que transmiten oficial y gratuitamente en su propio canal de YouTube. No se enlazan listas IPTV de terceros ni retransmisiones no oficiales de canales privados con derechos de autor.</p>
+    </div>
+
+    <div class="legal-box">
+      <h3 data-i18n="legal_title">Aviso legal</h3>
+      <p data-i18n="legal_p1">Todos los canales mostrados en esta página son transmisiones oficiales y gratuitas de sus respectivos dueños, cargadas mediante el reproductor embebido (embed) que YouTube provee públicamente para ese fin.</p>
+      <p data-i18n="legal_p2">Este sitio no aloja, produce, copia ni redistribuye ningún contenido con derechos de autor. Solo enlaza a transmisiones públicas oficiales a través de la infraestructura de YouTube.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <p class="cta" data-i18n="cta_text">¿Te sirvió esta herramienta? Si te ahorró tiempo, invítame un café.</p>
+    <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
+    <p class="footnote" data-i18n="disclaimer">Todos los canales son transmisiones oficiales gratuitas de sus dueños vía YouTube Live embed. Este sitio no aloja ni redistribuye contenido con copyright.</p>
+  </footer>
+
+</div>
+
+<script>
+  // ===================== Channel data =====================
+  // Añadir un canal nuevo: solo agregar un objeto a este array.
+  const CHANNELS = [
+    {
+      name: 'NASA TV',
+      youtubeChannelId: 'UCLA_DiR1FfKNvjuUpBHmylQ',
+      country: 'USA',
+      category: 'space',
+      icon: '🚀'
+    },
+    {
+      name: 'France 24',
+      youtubeChannelId: 'UCCCPCZNChQdGa9EkATeye4g',
+      country: 'France',
+      category: 'news',
+      icon: '📰'
+    },
+    {
+      name: 'DW News',
+      youtubeChannelId: 'UCknLrEdhRCp1aegoMqRaCZg',
+      country: 'Germany',
+      category: 'news',
+      icon: '📰'
+    },
+    {
+      name: 'euronews',
+      youtubeChannelId: 'UCSrZ3UV4jOidv8ppoVuvW9Q',
+      country: 'EU',
+      category: 'news',
+      icon: '📰'
+    }
+  ];
+
+  // ===================== i18n =====================
+  const translations = {
+    es: {
+      home_link: "← Todas las herramientas",
+      eyebrow: "TV en vivo",
+      subtitle: "Noticias y contenido de servicio público, transmitidos directo desde el canal oficial de YouTube de cada emisora.",
+      select_channel: "Selecciona un canal",
+      live_now: "EN VIVO",
+      placeholder_text: "Elige un canal de la lista para comenzar a ver",
+      cat_news: "Noticias",
+      cat_space: "Espacio",
+      seo_h2_1: "TV en vivo gratis, solo canales oficiales",
+      seo_p_1: "Esta página reúne canales de noticias y servicio público que transmiten oficialmente en vivo y de forma gratuita a través de su propio canal de YouTube. Cada reproductor usa el embed oficial de YouTube Live, cargando el video directamente desde el canal del dueño de los derechos.",
+      faq_q1: "¿Qué es esta página de TV en vivo?",
+      faq_a1: "Es un panel curado que reúne, en un solo lugar, los reproductores oficiales de YouTube Live de canales de noticias y servicio público que transmiten gratis las 24 horas.",
+      faq_q2: "¿Es legal ver estos canales aquí?",
+      faq_a2: "Sí. Cada canal se muestra usando el reproductor embebido oficial que YouTube provee para ese propósito exacto, cargando directamente el video del dueño del canal. Este sitio no aloja, copia ni redistribuye ningún video.",
+      faq_q3: "¿Por qué solo aparecen estos canales?",
+      faq_a3: "Solo se incluyen canales de noticias o servicio público que transmiten oficial y gratuitamente en su propio canal de YouTube. No se enlazan listas IPTV de terceros ni retransmisiones no oficiales de canales privados con derechos de autor.",
+      legal_title: "Aviso legal",
+      legal_p1: "Todos los canales mostrados en esta página son transmisiones oficiales y gratuitas de sus respectivos dueños, cargadas mediante el reproductor embebido (embed) que YouTube provee públicamente para ese fin.",
+      legal_p2: "Este sitio no aloja, produce, copia ni redistribuye ningún contenido con derechos de autor. Solo enlaza a transmisiones públicas oficiales a través de la infraestructura de YouTube.",
+      cta_text: "¿Te sirvió esta herramienta? Si te ahorró tiempo, invítame un café.",
+      cta_btn: "Invítame un café",
+      disclaimer: "Todos los canales son transmisiones oficiales gratuitas de sus dueños vía YouTube Live embed. Este sitio no aloja ni redistribuye contenido con copyright.",
+      docTitle: "TV en Vivo Gratis — Canales Oficiales de Noticias | 2026",
+      docDesc: "Mira TV en vivo gratis: NASA TV, France 24, DW News y más, vía el canal oficial de YouTube Live de cada emisora. 100% legal, sin registro.",
+      titleHtml: "Canales oficiales <em>en vivo</em>,<br>gratis y legal",
+      htmlLang: "es"
+    },
+    en: {
+      home_link: "← All tools",
+      eyebrow: "Live TV",
+      subtitle: "News and public service content, streamed directly from each broadcaster's official YouTube channel.",
+      select_channel: "Select a channel",
+      live_now: "LIVE",
+      placeholder_text: "Choose a channel from the list to start watching",
+      cat_news: "News",
+      cat_space: "Space",
+      seo_h2_1: "Free live TV, official channels only",
+      seo_p_1: "This page brings together news and public service channels that officially broadcast live and for free through their own YouTube channel. Each player uses the official YouTube Live embed, loading the video directly from the rights holder's channel.",
+      faq_q1: "What is this live TV page?",
+      faq_a1: "It's a curated panel that brings together, in one place, the official YouTube Live players of news and public service channels that broadcast for free 24/7.",
+      faq_q2: "Is it legal to watch these channels here?",
+      faq_a2: "Yes. Each channel is displayed using the official embedded player that YouTube provides for exactly this purpose, loading the video directly from the channel owner. This site does not host, copy, or redistribute any video.",
+      faq_q3: "Why are only these channels included?",
+      faq_a3: "Only news or public service channels that broadcast officially and for free on their own YouTube channel are included. No third-party IPTV lists or unofficial rebroadcasts of copyrighted private channels are linked.",
+      legal_title: "Legal notice",
+      legal_p1: "All channels shown on this page are official, free broadcasts from their respective owners, loaded via the embedded player that YouTube publicly provides for that purpose.",
+      legal_p2: "This site does not host, produce, copy, or redistribute any copyrighted content. It only links to official public broadcasts through YouTube's own infrastructure.",
+      cta_text: "Did this tool help you? If it saved you time, buy me a coffee.",
+      cta_btn: "Buy me a coffee",
+      disclaimer: "All channels are official free broadcasts from their owners via YouTube Live embed. This site does not host or redistribute copyrighted content.",
+      docTitle: "Free Live TV — Official News Channels | 2026",
+      docDesc: "Watch free live TV: NASA TV, France 24, DW News and more, via each broadcaster's official YouTube Live channel. 100% legal, no sign-up.",
+      titleHtml: "Official channels <em>live</em>,<br>free and legal",
+      htmlLang: "en"
+    }
+  };
+
+  function detectLang(){
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved && translations[saved]) return saved;
+    const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    return nav.startsWith('es') ? 'es' : 'en';
+  }
+
+  let currentLang = detectLang();
+  let activeChannel = null;
+
+  function applyLang(lang){
+    currentLang = lang;
+    localStorage.setItem('preferred-lang', lang);
+    const t = translations[lang];
+
+    document.documentElement.lang = t.htmlLang;
+    document.getElementById('doc-title').textContent = t.docTitle;
+    document.title = t.docTitle;
+    document.getElementById('meta-desc').setAttribute('content', t.docDesc);
+    document.getElementById('og-title').setAttribute('content', t.docTitle);
+    document.getElementById('og-desc').setAttribute('content', t.docDesc);
+    document.getElementById('tw-title').setAttribute('content', t.docTitle);
+    document.getElementById('tw-desc').setAttribute('content', t.docDesc);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (key === 'title') el.innerHTML = t.titleHtml;
+    });
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+    if (!activeChannel){
+      document.getElementById('player-title').textContent = t.select_channel;
+    }
+    renderChannels();
+  }
+
+  document.getElementById('btn-es').addEventListener('click', () => applyLang('es'));
+  document.getElementById('btn-en').addEventListener('click', () => applyLang('en'));
+
+  function renderChannels(){
+    const grid = document.getElementById('channels-grid');
+    grid.innerHTML = '';
+    CHANNELS.forEach(ch => {
+      const card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'channel-card' + (activeChannel === ch ? ' active' : '');
+      card.setAttribute('aria-label', ch.name);
+      card.innerHTML = `
+        <div class="channel-icon">${ch.icon}</div>
+        <div class="channel-info">
+          <div class="channel-name">${ch.name}</div>
+          <div class="channel-meta">${ch.country}</div>
+        </div>
+        ${activeChannel === ch ? '<div class="channel-live-mark">● ' + translations[currentLang].live_now + '</div>' : ''}
+      `;
+      card.addEventListener('click', () => selectChannel(ch));
+      grid.appendChild(card);
+    });
+  }
+
+  function selectChannel(ch){
+    activeChannel = ch;
+    document.getElementById('player-title').textContent = ch.name;
+    document.getElementById('live-badge').style.display = 'inline-flex';
+
+    const frame = document.getElementById('video-frame');
+    const src = `https://www.youtube.com/embed/live_stream?channel=${ch.youtubeChannelId}&autoplay=1`;
+    frame.innerHTML = `<iframe src="${src}" title="${ch.name}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
+    renderChannels();
+  }
+
+  // Init
+  applyLang(currentLang);
+  renderChannels();
+</script>
+</body>
+</html>

@@ -57,6 +57,12 @@ site/
     index.html                    → Dividir cuenta entre personas (LISTA)
   peso-mascota/
     index.html                    → Peso ideal de mascotas, perro/gato (LISTA)
+  conversor-divisas/
+    index.html                    → Conversor de divisas con tasas del BCE (LISTA)
+  radio-online/
+    index.html                    → Directorio de radio online por país (LISTA)
+  tv-en-vivo/
+    index.html                    → TV en vivo, solo canales oficiales vía YouTube embed (LISTA)
   conversor-unidades/
     index.html                    → Conversor de unidades (PENDIENTE - idea futura, no confirmada aún)
 ```
@@ -83,7 +89,10 @@ ganan más rápido que términos genéricos saturados por marcas grandes).
 3. ✅ **Cuota de préstamo / crédito** — CONSTRUIDA (alta demanda en LatAm, créditos de consumo, vivienda)
 4. ✅ **Split bill (dividir cuenta + propina)** — CONSTRUIDA (uso constante, viral en grupos)
 5. ✅ **Peso ideal de mascotas (perro/gato)** — CONSTRUIDA (rangos por tamaño de raza, orientativo)
-6. ⏳ **Conversor de unidades todo-en-uno** — uso diario, no confirmada como prioridad aún
+6. ✅ **Conversor de divisas** — CONSTRUIDA (API Frankfurter.app, datos del BCE, sin API key)
+7. ✅ **Radio online gratis** — CONSTRUIDA (API Radio-Browser, directorio abierto por país)
+8. ✅ **TV en vivo gratis** — CONSTRUIDA (solo canales oficiales vía YouTube Live embed, ver política de contenido abajo)
+9. ⏳ **Conversor de unidades todo-en-uno** — uso diario, no confirmada como prioridad aún
 
 ---
 
@@ -121,6 +130,54 @@ ganan más rápido que términos genéricos saturados por marcas grandes).
 - Inputs con `font-size:16px` mínimo (evita zoom automático en iOS).
 - Sliders con área táctil ampliada (min 28px alto).
 - Breakpoint mobile en `760px` para el grid, ajustes extra en `380px` para phones chicos.
+
+---
+
+## Herramientas con llamadas a APIs externas (sin backend propio)
+
+A partir del conversor de divisas, la radio online y la TV en vivo, algunas
+herramientas SÍ hacen `fetch()` a APIs públicas gratuitas desde el cliente
+(siguen siendo 100% JS vanilla sin backend propio, solo que ahora con
+llamadas de red). Reglas replicadas en las tres:
+
+- Manejo de errores de red visible (mensaje + botón de reintentar), nunca
+  una página en blanco si la API falla o no hay internet.
+- Loading state mientras se espera la respuesta.
+- Debounce (~400ms) en inputs que disparan fetch en cada tecla.
+
+### Conversor de divisas (`/conversor-divisas/`)
+- API: [Frankfurter.app](https://www.frankfurter.app/) — gratis, sin API key,
+  datos de referencia del Banco Central Europeo (BCE).
+- **Importante:** Frankfurter solo cubre ~30 monedas "mayores" (las que el BCE
+  publica). NO incluye COP (peso colombiano) ni la mayoría de monedas
+  latinoamericanas/emergentes. Los selects se pueblan dinámicamente desde
+  `/currencies`, así que solo aparecen las monedas realmente soportadas.
+  Default: USD → EUR.
+
+### Radio online (`/radio-online/`)
+- API: [Radio-Browser](https://www.radio-browser.info/) — directorio
+  abierto/comunitario de streams de radio, gratis, sin key. Se usa el mirror
+  `de1.api.radio-browser.info` directamente.
+- Nota legal explícita en el footer: los streams son de terceros (las
+  emisoras), agregados desde un directorio abierto. El sitio no aloja audio
+  propio.
+
+### TV en vivo (`/tv-en-vivo/`) — política de contenido
+- **Solo canales que transmiten oficialmente y gratis vía su propio canal de
+  YouTube**, usando el embed oficial `youtube.com/embed/live_stream?channel=ID`.
+  Esto es legal porque usa la infraestructura de embed que YouTube provee
+  para ese propósito exacto — el sitio no aloja ni redistribuye video.
+- **Explícitamente prohibido:** listas IPTV genéricas, listas M3U de
+  terceros, o retransmisiones no oficiales de canales privados con
+  copyright. Si en el futuro se agregan más canales, deben cumplir esta
+  misma regla (canal de noticias/servicio público con stream 24/7 oficial y
+  gratuito en YouTube, channel ID verificado manualmente, no inventado).
+- Canales incluidos (verificados manualmente vía `externalId` de la página
+  del canal + confirmado contra el RSS feed de YouTube): NASA TV, France 24,
+  DW News, euronews.
+- Estructura en código: array `CHANNELS` de objetos
+  `{ name, youtubeChannelId, country, category, icon }` — agregar un canal
+  nuevo es solo añadir un objeto al array.
 
 ---
 
@@ -168,13 +225,16 @@ en español e inglés — no hay un sistema compartido entre páginas todavía (
 5. ✅ Calculadora de cuota de préstamo — donut chart con conic-gradient, amortización francesa
 6. ✅ Split bill (dividir cuenta + propina) — fichas/avatares dinámicos por persona
 7. ✅ Peso ideal de mascotas (perro/gato) — gauge por tamaño de raza, orientativo
-8. ✅ Hub principal (`index.html`) con tarjetas a las 5 herramientas, todas "Disponible"
-9. ✅ Repo en GitHub: https://github.com/DevMenthor90/mini-webapps
-10. ✅ Desplegado en Vercel: https://mini-webapps-six.vercel.app (auto-deploy conectado al repo)
-11. ✅ Placeholders `TU-DOMINIO.vercel.app` reemplazados en todos los archivos
-12. ✅ Cuenta Ko-fi creada y conectada a PayPal: https://ko-fi.com/devmenthor — `TU_USUARIO` reemplazado en todos los botones
-13. ⏳ Pendiente (opcional): conversor de unidades todo-en-uno, si se confirma como prioridad
-14. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
+8. ✅ Conversor de divisas — API Frankfurter.app (BCE), tarjetas de moneda con bandera emoji + flecha animada
+9. ✅ Radio online gratis — API Radio-Browser, ecualizador CSS animado en la estación sonando
+10. ✅ TV en vivo gratis — solo canales oficiales vía YouTube Live embed (NASA TV, France 24, DW News, euronews)
+11. ✅ Hub principal (`index.html`) con tarjetas a las 8 herramientas, todas "Disponible"
+12. ✅ Repo en GitHub: https://github.com/DevMenthor90/mini-webapps
+13. ✅ Desplegado en Vercel: https://mini-webapps-six.vercel.app (auto-deploy conectado al repo)
+14. ✅ Placeholders `TU-DOMINIO.vercel.app` reemplazados en todos los archivos
+15. ✅ Cuenta Ko-fi creada y conectada a PayPal: https://ko-fi.com/devmenthor — `TU_USUARIO` reemplazado en todos los botones
+16. ⏳ Pendiente (opcional): conversor de unidades todo-en-uno, si se confirma como prioridad
+17. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
 
 ---
 
