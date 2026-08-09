@@ -162,13 +162,14 @@ en español e inglés — no hay un sistema compartido entre páginas todavía (
 2. ✅ Investigación de demanda de calculadoras (5 ideas validadas)
 3. ✅ Calculadora de interés compuesto — diseño + responsive + i18n + SEO completo
 4. ✅ Hub principal (`index.html`) con tarjetas a las 4 herramientas (1 activa, 3 "próximamente")
-5. ⏳ **Usuario está montando el repo en GitHub y desplegando en Vercel** (paso manual, en curso)
-6. ⏳ Pendiente: usuario devuelve la URL final de Vercel → reemplazar todos los placeholders `TU-DOMINIO.vercel.app`
-7. ⏳ Pendiente: construir calculadora de IMC/calorías (siguiente en la fila)
-8. ⏳ Pendiente: construir calculadora de préstamo
-9. ⏳ Pendiente: construir split bill
-10. ⏳ Pendiente: crear cuenta Ko-fi y reemplazar `TU_USUARIO` en todos los botones
-11. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
+5. ✅ Repo en GitHub: https://github.com/DevMenthor90/mini-webapps
+6. ✅ Desplegado en Vercel: https://mini-webapps-six.vercel.app (auto-deploy conectado al repo)
+7. ✅ Placeholders `TU-DOMINIO.vercel.app` reemplazados en todos los archivos
+8. ⏳ Pendiente: construir calculadora de IMC/calorías (siguiente en la fila)
+9. ⏳ Pendiente: construir calculadora de préstamo
+10. ⏳ Pendiente: construir split bill
+11. ⏳ Pendiente: crear cuenta Ko-fi y reemplazar `TU_USUARIO` en todos los botones
+12. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
 
 ---
 
