@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- ===== SEO: Primary meta ===== -->
+<title id="doc-title">Política de Privacidad — Herramientas Financieras Gratis | 2026</title>
+<meta id="meta-desc" name="description" content="Política de privacidad del sitio: qué datos se usan (ninguno personal), localStorage para idioma, APIs de terceros y Ko-fi. Sin backend ni cuentas de usuario.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Herramientas Financieras Gratis">
+<link id="canonical" rel="canonical" href="https://mini-webapps-six.vercel.app/privacidad/">
+
+<link rel="alternate" hreflang="es" href="https://mini-webapps-six.vercel.app/privacidad/">
+<link rel="alternate" hreflang="en" href="https://mini-webapps-six.vercel.app/privacidad/">
+<link rel="alternate" hreflang="x-default" href="https://mini-webapps-six.vercel.app/privacidad/">
+
+<meta id="og-title" property="og:title" content="Política de Privacidad — Herramientas Financieras Gratis">
+<meta id="og-desc" property="og:description" content="Qué datos usa este sitio (ninguno personal), localStorage para idioma, APIs de terceros y Ko-fi.">
+<meta property="og:type" content="website">
+<meta id="og-url" property="og:url" content="https://mini-webapps-six.vercel.app/privacidad/">
+<meta property="og:image" content="https://mini-webapps-six.vercel.app/og-image.png">
+<meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
+<meta id="og-site" property="og:site_name" content="Herramientas Financieras Gratis">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta id="tw-title" name="twitter:title" content="Política de Privacidad">
+<meta id="tw-desc" name="twitter:description" content="Qué datos usa este sitio y cómo. Sin backend, sin cuentas de usuario.">
+
+<meta name="theme-color" content="#0F1B2B">
+
+<!-- AdSense (pendiente de aprobación):
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
+<script type="application/ld+json" id="schema-page">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Política de Privacidad",
+  "url": "https://mini-webapps-six.vercel.app/privacidad/",
+  "inLanguage": ["es", "en"],
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Herramientas Financieras Gratis",
+    "url": "https://mini-webapps-six.vercel.app/"
+  }
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#0F1B2B;
+    --paper:#F5EFE3;
+    --gold:#C9A961;
+    --sage:#4A7C6E;
+    --terracotta:#8B4B3B;
+    --paper-dim:#E8DFCC;
+    --ink-soft:rgba(245,239,227,0.62);
+    --ink-faint:rgba(245,239,227,0.32);
+    --space-xs:8px; --space-sm:14px; --space-md:22px; --space-lg:32px; --space-xl:48px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    min-height:100vh;
+    padding:clamp(16px,4vw,24px) 16px 60px;
+    line-height:1.5;
+  }
+
+  .wrap{max-width:760px; margin:0 auto;}
+
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .home-link{
+    font-family:'Space Mono',monospace;
+    font-size:12px;
+    color:var(--ink-faint);
+    text-decoration:none;
+    transition:color 0.15s ease;
+  }
+  .home-link:hover{color:var(--gold);}
+
+  .lang-switch{display:flex; justify-content:flex-end; gap:4px;}
+  .lang-btn{
+    background:none;
+    border:1px solid rgba(245,239,227,0.16);
+    color:var(--ink-soft);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.06em;
+    padding:6px 12px;
+    border-radius:3px;
+    cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .lang-btn.active{background:var(--gold); color:var(--ink); border-color:var(--gold); font-weight:700;}
+  .lang-btn:not(.active):hover{border-color:var(--gold); color:var(--gold);}
+
+  header{text-align:center; padding:clamp(20px,5vw,32px) 0 clamp(28px,6vw,40px);}
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(28px,6.5vw,48px);
+    letter-spacing:-0.01em;
+    line-height:1.08;
+  }
+  h1 em{font-style:italic; font-weight:300; color:var(--gold);}
+  .sub{color:var(--ink-soft); max-width:480px; margin:16px auto 0; font-size:clamp(14px,3.2vw,15px);}
+
+  .ad-slot{display:none;}
+
+  .panel{
+    background:rgba(245,239,227,0.04);
+    border:1px solid rgba(245,239,227,0.1);
+    border-radius:4px;
+    padding:clamp(20px,4vw,32px);
+  }
+
+  .panel h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(18px,3.5vw,22px);
+    margin-top:28px;
+    margin-bottom:12px;
+    color:var(--paper);
+  }
+  .panel h2:first-child{margin-top:0;}
+  .panel p{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    margin-bottom:14px;
+  }
+  .panel ul{
+    color:var(--ink-soft);
+    font-size:14.5px;
+    margin:0 0 14px 20px;
+  }
+  .panel li{margin-bottom:8px;}
+  .panel a{color:var(--gold); text-decoration:underline; text-underline-offset:2px;}
+  .panel strong{color:var(--paper); font-weight:600;}
+
+  .updated{
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    color:var(--ink-faint);
+    text-align:center;
+    margin-top:24px;
+  }
+
+  footer{text-align:center; margin-top:var(--space-xl); padding-top:var(--space-lg); border-top:1px solid rgba(245,239,227,0.08);}
+  .cta{font-size:14px; color:var(--ink-soft); margin-bottom:16px; max-width:420px; margin-left:auto; margin-right:auto;}
+  .coffee-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--gold);
+    color:var(--ink);
+    font-weight:600;
+    font-size:14px;
+    padding:14px 26px;
+    border-radius:3px;
+    text-decoration:none;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+    min-height:44px;
+  }
+  .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
+  .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:20px;}
+  .footnote a{color:var(--ink-faint); text-decoration:underline; text-underline-offset:2px;}
+  .footnote a:hover{color:var(--gold);}
+
+  :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+  @media (prefers-reduced-motion:reduce){
+    .coffee-btn{transition:none;}
+  }
+
+  @media (max-width:380px){
+    .panel{padding:16px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="/" class="home-link" data-i18n="home_link">← Todas las herramientas</a>
+    <div class="lang-switch" role="group" aria-label="Language selector">
+      <button class="lang-btn" data-lang="es" id="btn-es">ES</button>
+      <button class="lang-btn" data-lang="en" id="btn-en">EN</button>
+    </div>
+  </div>
+
+  <header>
+    <div class="eyebrow" data-i18n="eyebrow">Legal</div>
+    <h1 data-i18n-html="title">Política de <em>privacidad</em></h1>
+    <p class="sub" data-i18n="subtitle">Qué información se usa en este sitio, y qué no.</p>
+  </header>
+
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-top" aria-hidden="true"></div>
+
+  <main>
+  <section class="panel">
+    <h2 data-i18n="h_intro">Resumen</h2>
+    <p data-i18n="p_intro">Este es un sitio de herramientas gratuitas (calculadoras y utilidades) sin backend propio, sin base de datos y sin cuentas de usuario. No pedimos registro para usar ninguna herramienta, y no recopilamos información personal para crear perfiles de usuarios.</p>
+
+    <h2 data-i18n="h_localstorage">Almacenamiento local del navegador (localStorage)</h2>
+    <p data-i18n="p_localstorage">Este sitio usa <strong data-i18n="localstorage_term">localStorage</strong>, una función estándar de tu navegador para guardar datos pequeños directamente en tu dispositivo (no en un servidor). Lo usamos únicamente para recordar tu preferencia de idioma (español o inglés) entre visitas. Puedes borrar este dato en cualquier momento limpiando los datos de navegación o las cookies/almacenamiento del sitio desde la configuración de tu navegador.</p>
+
+    <h2 data-i18n="h_apis">APIs de terceros usadas por algunas herramientas</h2>
+    <p data-i18n="p_apis_intro">Algunas herramientas del sitio hacen llamadas directas desde tu navegador a servicios públicos de terceros para funcionar. No pasan por ningún servidor propio. Como parte del funcionamiento normal de esos servicios, es posible que reciban tu dirección IP y otros datos técnicos habituales de cualquier solicitud web:</p>
+    <ul>
+      <li data-i18n="p_apis_exchange"><strong>Conversor de divisas:</strong> usa <a href="https://www.exchangerate-api.com/" target="_blank" rel="noopener">exchangerate-api.com</a> para obtener tasas de cambio actualizadas.</li>
+      <li data-i18n="p_apis_radio"><strong>Radio online:</strong> usa el directorio abierto <a href="https://www.radio-browser.info/" target="_blank" rel="noopener">Radio-Browser</a> para listar y reproducir emisoras de terceros.</li>
+      <li data-i18n="p_apis_tv"><strong>TV en vivo:</strong> usa el reproductor embebido oficial de <a href="https://www.youtube.com/t/terms" target="_blank" rel="noopener">YouTube</a> para mostrar canales que transmiten en vivo desde sus propios canales oficiales.</li>
+    </ul>
+    <p data-i18n="p_apis_note">El uso de estos servicios está sujeto a las políticas de privacidad de cada proveedor, no a las de este sitio.</p>
+
+    <h2 data-i18n="h_kofi">Ko-fi (botón "invítame un café")</h2>
+    <p data-i18n="p_kofi">Los botones "☕ Invítame un café" te llevan a <a href="https://ko-fi.com/" target="_blank" rel="noopener">ko-fi.com</a>, un sitio de terceros. Cualquier dato que compartas ahí (por ejemplo al hacer una donación vía PayPal) es manejado por Ko-fi y PayPal bajo sus propias políticas de privacidad. Este sitio no recibe ni almacena esa información.</p>
+
+    <h2 data-i18n="h_ads">Publicidad (si se activa en el futuro)</h2>
+    <p data-i18n="p_ads">Actualmente este sitio no muestra anuncios. Si en el futuro activamos publicidad (por ejemplo mediante Google AdSense), los anuncios podrían usar cookies u otras tecnologías similares para personalizar el contenido mostrado, según las políticas de publicidad de Google. Más información en <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">policies.google.com/technologies/ads</a>. Actualizaremos esta página cuando eso ocurra.</p>
+
+    <h2 data-i18n="h_analytics">Analítica</h2>
+    <p data-i18n="p_analytics">Este sitio no usa actualmente ninguna herramienta de analítica de terceros (como Google Analytics). Si esto cambia en el futuro, se reflejará en esta política.</p>
+
+    <h2 data-i18n="h_contact">Contacto</h2>
+    <p data-i18n="p_contact">No hay un correo de contacto público asociado a este proyecto por ahora. Puedes contactar a través de la página de <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener">Ko-fi</a>.</p>
+
+    <h2 data-i18n="h_changes">Cambios a esta política</h2>
+    <p data-i18n="p_changes">Esta política puede actualizarse si el sitio cambia (por ejemplo, al activar publicidad o agregar nuevas herramientas). La fecha de la última actualización aparece abajo.</p>
+
+    <p class="updated" data-i18n="updated">Última actualización: 9 de agosto de 2026</p>
+  </section>
+  </main>
+
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-bottom" aria-hidden="true"></div>
+
+  <footer>
+    <p class="cta" data-i18n="cta_text">¿Te sirvieron estas herramientas? Si te ahorraron tiempo, invítame un café.</p>
+    <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
+    <p class="footnote"><a href="/privacidad/" data-i18n="privacy_link">Política de privacidad</a></p>
+  </footer>
+
+</div>
+
+<script>
+  const translations = {
+    es: {
+      home_link: "← Todas las herramientas",
+      eyebrow: "Legal",
+      subtitle: "Qué información se usa en este sitio, y qué no.",
+      titleHtml: "Política de <em>privacidad</em>",
+      h_intro: "Resumen",
+      p_intro: "Este es un sitio de herramientas gratuitas (calculadoras y utilidades) sin backend propio, sin base de datos y sin cuentas de usuario. No pedimos registro para usar ninguna herramienta, y no recopilamos información personal para crear perfiles de usuarios.",
+      h_localstorage: "Almacenamiento local del navegador (localStorage)",
+      localstorage_term: "localStorage",
+      p_localstorage: "Este sitio usa localStorage, una función estándar de tu navegador para guardar datos pequeños directamente en tu dispositivo (no en un servidor). Lo usamos únicamente para recordar tu preferencia de idioma (español o inglés) entre visitas. Puedes borrar este dato en cualquier momento limpiando los datos de navegación o las cookies/almacenamiento del sitio desde la configuración de tu navegador.",
+      h_apis: "APIs de terceros usadas por algunas herramientas",
+      p_apis_intro: "Algunas herramientas del sitio hacen llamadas directas desde tu navegador a servicios públicos de terceros para funcionar. No pasan por ningún servidor propio. Como parte del funcionamiento normal de esos servicios, es posible que reciban tu dirección IP y otros datos técnicos habituales de cualquier solicitud web:",
+      p_apis_exchange: "Conversor de divisas: usa exchangerate-api.com para obtener tasas de cambio actualizadas.",
+      p_apis_radio: "Radio online: usa el directorio abierto Radio-Browser para listar y reproducir emisoras de terceros.",
+      p_apis_tv: "TV en vivo: usa el reproductor embebido oficial de YouTube para mostrar canales que transmiten en vivo desde sus propios canales oficiales.",
+      p_apis_note: "El uso de estos servicios está sujeto a las políticas de privacidad de cada proveedor, no a las de este sitio.",
+      h_kofi: "Ko-fi (botón \"invítame un café\")",
+      p_kofi: "Los botones \"☕ Invítame un café\" te llevan a ko-fi.com, un sitio de terceros. Cualquier dato que compartas ahí (por ejemplo al hacer una donación vía PayPal) es manejado por Ko-fi y PayPal bajo sus propias políticas de privacidad. Este sitio no recibe ni almacena esa información.",
+      h_ads: "Publicidad (si se activa en el futuro)",
+      p_ads: "Actualmente este sitio no muestra anuncios. Si en el futuro activamos publicidad (por ejemplo mediante Google AdSense), los anuncios podrían usar cookies u otras tecnologías similares para personalizar el contenido mostrado, según las políticas de publicidad de Google. Más información en policies.google.com/technologies/ads. Actualizaremos esta página cuando eso ocurra.",
+      h_analytics: "Analítica",
+      p_analytics: "Este sitio no usa actualmente ninguna herramienta de analítica de terceros (como Google Analytics). Si esto cambia en el futuro, se reflejará en esta política.",
+      h_contact: "Contacto",
+      p_contact: "No hay un correo de contacto público asociado a este proyecto por ahora. Puedes contactar a través de la página de Ko-fi.",
+      h_changes: "Cambios a esta política",
+      p_changes: "Esta política puede actualizarse si el sitio cambia (por ejemplo, al activar publicidad o agregar nuevas herramientas). La fecha de la última actualización aparece abajo.",
+      updated: "Última actualización: 9 de agosto de 2026",
+      cta_text: "¿Te sirvieron estas herramientas? Si te ahorraron tiempo, invítame un café.",
+      cta_btn: "Invítame un café",
+      privacy_link: "Política de privacidad",
+      docTitle: "Política de Privacidad — Herramientas Financieras Gratis | 2026",
+      docDesc: "Política de privacidad del sitio: qué datos se usan (ninguno personal), localStorage para idioma, APIs de terceros y Ko-fi. Sin backend ni cuentas de usuario.",
+      htmlLang: "es"
+    },
+    en: {
+      home_link: "← All tools",
+      eyebrow: "Legal",
+      subtitle: "What information this site uses, and what it doesn't.",
+      titleHtml: "Privacy <em>policy</em>",
+      h_intro: "Summary",
+      p_intro: "This is a site of free tools (calculators and utilities) with no backend, no database, and no user accounts. No sign-up is required to use any tool, and we don't collect personal information to build user profiles.",
+      h_localstorage: "Browser local storage (localStorage)",
+      localstorage_term: "localStorage",
+      p_localstorage: "This site uses localStorage, a standard browser feature that saves small pieces of data directly on your device (not on a server). We use it only to remember your language preference (Spanish or English) between visits. You can delete this data at any time by clearing your browser's browsing data or site storage/cookies.",
+      h_apis: "Third-party APIs used by some tools",
+      p_apis_intro: "Some tools on this site make direct calls from your browser to public third-party services in order to work. These calls do not go through any server we control. As part of the normal operation of those services, they may receive your IP address and other technical data typical of any web request:",
+      p_apis_exchange: "Currency converter: uses exchangerate-api.com to get up-to-date exchange rates.",
+      p_apis_radio: "Online radio: uses the open Radio-Browser directory to list and play third-party stations.",
+      p_apis_tv: "Live TV: uses YouTube's official embedded player to show channels streaming live from their own official channels.",
+      p_apis_note: "Use of these services is governed by each provider's own privacy policy, not this site's.",
+      h_kofi: "Ko-fi (\"buy me a coffee\" button)",
+      p_kofi: "The \"☕ Buy me a coffee\" buttons take you to ko-fi.com, a third-party site. Any data you share there (for example when donating via PayPal) is handled by Ko-fi and PayPal under their own privacy policies. This site does not receive or store that information.",
+      h_ads: "Advertising (if enabled in the future)",
+      p_ads: "This site currently shows no ads. If we enable advertising in the future (for example via Google AdSense), ads may use cookies or similar technologies to personalize content shown, according to Google's advertising policies. More information at policies.google.com/technologies/ads. We'll update this page when that happens.",
+      h_analytics: "Analytics",
+      p_analytics: "This site currently does not use any third-party analytics tool (such as Google Analytics). If this changes in the future, it will be reflected in this policy.",
+      h_contact: "Contact",
+      p_contact: "There is no public contact email associated with this project yet. You can reach out through the Ko-fi page.",
+      h_changes: "Changes to this policy",
+      p_changes: "This policy may be updated if the site changes (for example, by enabling advertising or adding new tools). The last update date appears below.",
+      updated: "Last updated: August 9, 2026",
+      cta_text: "Did these tools help you? If they saved you time, buy me a coffee.",
+      cta_btn: "Buy me a coffee",
+      privacy_link: "Privacy policy",
+      docTitle: "Privacy Policy — Free Financial Tools | 2026",
+      docDesc: "Site privacy policy: what data is used (none personal), localStorage for language, third-party APIs, and Ko-fi. No backend or user accounts.",
+      htmlLang: "en"
+    }
+  };
+
+  function detectLang(){
+    const saved = localStorage.getItem('preferred-lang');
+    if (saved && translations[saved]) return saved;
+    const nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+    return nav.startsWith('es') ? 'es' : 'en';
+  }
+
+  function applyLang(lang){
+    localStorage.setItem('preferred-lang', lang);
+    const t = translations[lang];
+
+    document.documentElement.lang = t.htmlLang;
+    document.getElementById('doc-title').textContent = t.docTitle;
+    document.title = t.docTitle;
+    document.getElementById('meta-desc').setAttribute('content', t.docDesc);
+    document.getElementById('og-title').setAttribute('content', t.docTitle);
+    document.getElementById('og-desc').setAttribute('content', t.docDesc);
+    document.getElementById('tw-title').setAttribute('content', t.docTitle);
+    document.getElementById('tw-desc').setAttribute('content', t.docDesc);
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key] !== undefined) el.textContent = t[key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (key === 'title') el.innerHTML = t.titleHtml;
+    });
+
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+
+  document.getElementById('btn-es').addEventListener('click', () => applyLang('es'));
+  document.getElementById('btn-en').addEventListener('click', () => applyLang('en'));
+
+  applyLang(detectLang());
+</script>
+</body>
+</html>

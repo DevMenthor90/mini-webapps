@@ -30,6 +30,10 @@
 
 <meta name="theme-color" content="#0F1B2B">
 
+<!-- AdSense (pendiente de aprobación):
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
 <script type="application/ld+json" id="schema-site">
 {
   "@context": "https://schema.org",
@@ -203,6 +207,11 @@
     transition:transform 0.15s ease, box-shadow 0.15s ease;
   }
   .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
+  .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:16px;}
+  .footnote a{color:var(--ink-faint); text-decoration:underline; text-underline-offset:2px;}
+  .footnote a:hover{color:var(--gold);}
+
+  .ad-slot{display:none;}
 
   :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
 </style>
@@ -222,6 +231,9 @@
     <h1 data-i18n-html="title">Calculadoras <em>gratis</em><br>que resuelven algo hoy</h1>
     <p class="sub" data-i18n="subtitle">Sin registro, sin descargas, sin letra pequeña. Elige una herramienta y úsala directamente.</p>
   </header>
+
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-top" aria-hidden="true"></div>
 
   <main class="tools-grid">
     <a href="/interes-compuesto/" class="tool-card">
@@ -281,9 +293,13 @@
     </a>
   </main>
 
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-bottom" aria-hidden="true"></div>
+
   <footer>
     <p class="cta" data-i18n="cta_text">¿Te sirvieron estas herramientas? Si te ahorraron tiempo, invítame un café.</p>
     <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
+    <p class="footnote"><a href="/privacidad/" data-i18n="privacy_link">Política de privacidad</a></p>
   </footer>
 
 </div>
@@ -314,6 +330,7 @@
       tag_soon: "Próximamente",
       cta_text: "¿Te sirvieron estas herramientas? Si te ahorraron tiempo, invítame un café.",
       cta_btn: "Invítame un café",
+      privacy_link: "Política de privacidad",
       docTitle: "Herramientas Financieras Gratis — Calculadoras Online | 2026",
       docDesc: "Calculadoras financieras y de salud gratuitas: interés compuesto, préstamos, IMC y más. Rápidas, sin registro, en español e inglés.",
       htmlLang: "es"
@@ -342,6 +359,7 @@
       tag_soon: "Coming soon",
       cta_text: "Did these tools help you? If they saved you time, buy me a coffee.",
       cta_btn: "Buy me a coffee",
+      privacy_link: "Privacy policy",
       docTitle: "Free Financial Tools — Online Calculators | 2026",
       docDesc: "Free financial and health calculators: compound interest, loans, BMI and more. Fast, no sign-up, in Spanish and English.",
       htmlLang: "en"

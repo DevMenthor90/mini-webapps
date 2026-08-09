@@ -30,6 +30,10 @@
 
 <meta name="theme-color" content="#0F1B2B">
 
+<!-- AdSense (pendiente de aprobación):
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
 <script type="application/ld+json" id="schema-app">
 {
   "@context": "https://schema.org",
@@ -252,6 +256,10 @@
   .coffee-btn{display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--ink); font-weight:600; font-size:14px; padding:14px 26px; border-radius:3px; text-decoration:none; transition:transform 0.15s ease, box-shadow 0.15s ease; min-height:44px;}
   .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
   .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:20px;}
+  .footnote a{color:var(--ink-faint); text-decoration:underline; text-underline-offset:2px;}
+  .footnote a:hover{color:var(--gold);}
+
+  .ad-slot{display:none;}
 
   :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
   @media (prefers-reduced-motion:reduce){
@@ -282,6 +290,9 @@
     <h1 data-i18n-html="title">¿Tu mascota está en su <em>peso</em><br>ideal?</h1>
     <p class="sub" data-i18n="subtitle">Compara el peso de tu perro o gato con el rango saludable esperado según su tamaño de raza.</p>
   </header>
+
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-top" aria-hidden="true"></div>
 
   <main>
   <div class="grid">
@@ -363,10 +374,14 @@
   </section>
   </main>
 
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-bottom" aria-hidden="true"></div>
+
   <footer>
     <p class="cta" data-i18n="cta_text">¿Te sirvió esta calculadora? Si te ayudó a cuidar mejor a tu mascota, invítame un café.</p>
     <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
     <p class="footnote" data-i18n="disclaimer">Herramienta orientativa. No reemplaza el diagnóstico de un veterinario.</p>
+    <p class="footnote"><a href="/privacidad/" data-i18n="privacy_link">Política de privacidad</a></p>
   </footer>
 
 </div>
@@ -414,6 +429,7 @@
       cta_text: "¿Te sirvió esta calculadora? Si te ayudó a cuidar mejor a tu mascota, invítame un café.",
       cta_btn: "Invítame un café",
       disclaimer: "Herramienta orientativa. No reemplaza el diagnóstico de un veterinario.",
+      privacy_link: "Política de privacidad",
       docTitle: "Calculadora de Peso Ideal para Perros y Gatos Gratis | 2026",
       docDesc: "Calcula el peso ideal de tu perro o gato según su tamaño de raza, gratis. Compara el peso actual de tu mascota con el rango saludable. Sin registro.",
       titleHtml: "¿Tu mascota está en su <em>peso</em><br>ideal?",
@@ -461,6 +477,7 @@
       cta_text: "Did this calculator help you? If it helped you take better care of your pet, buy me a coffee.",
       cta_btn: "Buy me a coffee",
       disclaimer: "Guidance tool only. Does not replace a veterinarian's diagnosis.",
+      privacy_link: "Privacy policy",
       docTitle: "Free Ideal Weight Calculator for Dogs and Cats | 2026",
       docDesc: "Calculate your dog's or cat's ideal weight by breed size, for free. Compare your pet's current weight with the healthy range. No sign-up.",
       titleHtml: "Is your pet at its ideal <em>weight</em>?",

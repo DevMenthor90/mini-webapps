@@ -30,6 +30,10 @@
 
 <meta name="theme-color" content="#0F1B2B">
 
+<!-- AdSense (pendiente de aprobación):
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
 <script type="application/ld+json" id="schema-app">
 {
   "@context": "https://schema.org",
@@ -214,6 +218,10 @@
   }
   .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
   .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:20px; max-width:560px; margin-left:auto; margin-right:auto;}
+  .footnote a{color:var(--ink-faint); text-decoration:underline; text-underline-offset:2px;}
+  .footnote a:hover{color:var(--gold);}
+
+  .ad-slot{display:none;}
 
   :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
   @media (prefers-reduced-motion:reduce){
@@ -241,6 +249,9 @@
     <h1 data-i18n-html="title">Escucha radio <em>en vivo</em><br>de cualquier país</h1>
     <p class="sub" data-i18n="subtitle">Miles de emisoras públicas, directo desde tu navegador. Sin registro, sin apps.</p>
   </header>
+
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-top" aria-hidden="true"></div>
 
   <main>
   <section class="panel player-panel" aria-label="Reproductor" aria-live="polite">
@@ -287,10 +298,14 @@
   </section>
   </main>
 
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-bottom" aria-hidden="true"></div>
+
   <footer>
     <p class="cta" data-i18n="cta_text">¿Te sirvió esta herramienta? Si te ahorró tiempo, invítame un café.</p>
     <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
     <p class="footnote" data-i18n="disclaimer">Todas las estaciones son streams públicos de terceros (las propias emisoras), agregados desde el directorio abierto Radio-Browser. Este sitio no aloja, produce ni redistribuye contenido de audio propio.</p>
+    <p class="footnote"><a href="/privacidad/" data-i18n="privacy_link">Política de privacidad</a></p>
   </footer>
 
 </div>
@@ -323,6 +338,7 @@
       cta_text: "¿Te sirvió esta herramienta? Si te ahorró tiempo, invítame un café.",
       cta_btn: "Invítame un café",
       disclaimer: "Todas las estaciones son streams públicos de terceros (las propias emisoras), agregados desde el directorio abierto Radio-Browser. Este sitio no aloja, produce ni redistribuye contenido de audio propio.",
+      privacy_link: "Política de privacidad",
       docTitle: "Radio Online Gratis — Escucha Emisoras en Vivo | 2026",
       docDesc: "Escucha radio online gratis desde cualquier país. Miles de emisoras en vivo, sin registro ni descargas, directo desde tu navegador.",
       titleHtml: "Escucha radio <em>en vivo</em><br>de cualquier país",
@@ -353,6 +369,7 @@
       cta_text: "Did this tool help you? If it saved you time, buy me a coffee.",
       cta_btn: "Buy me a coffee",
       disclaimer: "All stations are public third-party streams (the stations themselves), aggregated from the open Radio-Browser directory. This site does not host, produce, or redistribute any audio content of its own.",
+      privacy_link: "Privacy policy",
       docTitle: "Free Online Radio — Listen to Live Stations | 2026",
       docDesc: "Listen to free online radio from any country. Thousands of live stations, no sign-up or downloads, straight from your browser.",
       titleHtml: "Listen to <em>live</em> radio<br>from any country",

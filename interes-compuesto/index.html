@@ -32,6 +32,10 @@
 
 <meta name="theme-color" content="#0F1B2B">
 
+<!-- AdSense (pendiente de aprobación):
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
 <!-- ===== Schema.org: WebApplication + FAQ (rich results) ===== -->
 <script type="application/ld+json" id="schema-app">
 {
@@ -446,6 +450,10 @@
     color:var(--ink-faint);
     margin-top:20px;
   }
+  .footnote a{color:var(--ink-faint); text-decoration:underline; text-underline-offset:2px;}
+  .footnote a:hover{color:var(--gold);}
+
+  .ad-slot{display:none;}
 
   /* ---- Accessibility ---- */
   :focus-visible{
@@ -481,6 +489,9 @@
     <h1 data-i18n-html="title">Mira cómo <em>crece</em><br>tu dinero, año a año</h1>
     <p class="sub" data-i18n="subtitle">Ajusta los números y observa cuánto de tu resultado final viene de lo que aportaste y cuánto lo generó el interés por sí solo.</p>
   </header>
+
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-top" aria-hidden="true"></div>
 
   <main>
   <div class="grid">
@@ -559,10 +570,14 @@
   </section>
   </main>
 
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-bottom" aria-hidden="true"></div>
+
   <footer>
     <p class="cta" data-i18n="cta_text">¿Te sirvió esta calculadora? Si te ahorró tiempo (o te motivó a empezar a ahorrar), invítame un café.</p>
     <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
     <p class="footnote" data-i18n="disclaimer">Herramienta educativa. No constituye asesoría financiera.</p>
+    <p class="footnote"><a href="/privacidad/" data-i18n="privacy_link">Política de privacidad</a></p>
   </footer>
 
 </div>
@@ -595,6 +610,7 @@
       cta_text: "¿Te sirvió esta calculadora? Si te ahorró tiempo (o te motivó a empezar a ahorrar), invítame un café.",
       cta_btn: "Invítame un café",
       disclaimer: "Herramienta educativa. No constituye asesoría financiera.",
+      privacy_link: "Política de privacidad",
       years_suffix: "años",
       year_suffix: "año",
       docTitle: "Calculadora de Interés Compuesto Gratis — Cuánto Crece tu Dinero | 2026",
@@ -628,6 +644,7 @@
       cta_text: "Did this calculator help you? If it saved you time (or motivated you to start saving), buy me a coffee.",
       cta_btn: "Buy me a coffee",
       disclaimer: "Educational tool. Not financial advice.",
+      privacy_link: "Privacy policy",
       years_suffix: "years",
       year_suffix: "year",
       docTitle: "Free Compound Interest Calculator — See How Your Money Grows | 2026",

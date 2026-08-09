@@ -220,6 +220,36 @@ en español e inglés — no hay un sistema compartido entre páginas todavía (
 
 ---
 
+## Google AdSense — infraestructura preparada (sin activar aún)
+
+**Contexto:** AdSense no aprueba sitios sin tráfico real, así que la postulación
+formal es un paso futuro. Hoy solo se dejó lista la infraestructura:
+
+- ✅ Página de política de privacidad creada en `/privacidad/` (mismo sistema de
+  diseño, i18n ES/EN completo, SEO completo). Cubre honestamente lo que el sitio
+  hace: sin backend/BD/cuentas, `localStorage` solo para idioma, llamadas a APIs
+  de terceros (exchangerate-api.com, Radio-Browser, YouTube embed), enlaces a
+  Ko-fi (dominio de terceros), párrafo genérico sobre cookies/anuncios (aplica
+  "si en el futuro activamos publicidad"), sin analytics (no hay ninguno instalado).
+- ✅ Link a "Política de privacidad" agregado en el footer de las 9 páginas
+  existentes (hub + 8 herramientas), con i18n (`privacy_link`).
+- ✅ Slots de anuncio reservados (`.ad-slot`, clases `ad-slot-top` / `ad-slot-bottom`)
+  en las 9 páginas existentes + la de privacidad. Son contenedores vacíos con
+  `display:none` por defecto — **no afectan el layout ni son visibles** hasta que
+  se activen manualmente. Marcados con comentario `<!-- AdSense slot: activar
+  cuando se apruebe la cuenta -->` para ubicarlos fácil.
+- ✅ Comentario HTML (inactivo, sin código real) dejado en el `<head>` de cada
+  página mostrando dónde iría el script de AdSense cuando exista un client ID.
+- ✅ `sitemap.xml` actualizado con `/privacidad/` (priority 0.3, changefreq yearly).
+- ⏳ **Pendiente (futuro):** conseguir tráfico real antes de postular a AdSense
+  (requisito de Google, no se puede acelerar).
+- ⏳ **Pendiente (cuando se apruebe la cuenta):** reemplazar `ca-pub-XXXXXXXXXXXXXXXX`
+  con el client ID real, descomentar el script en el `<head>` de cada página, y
+  activar los `.ad-slot` (quitar `display:none` / insertar el `<ins class="adsbygoogle">`
+  correspondiente) en las ubicaciones ya reservadas.
+
+---
+
 ## Estado actual / próximos pasos
 
 1. ✅ Investigación de plataforma de monetización (Ko-fi ganó)
@@ -237,8 +267,10 @@ en español e inglés — no hay un sistema compartido entre páginas todavía (
 13. ✅ Desplegado en Vercel: https://mini-webapps-six.vercel.app (auto-deploy conectado al repo)
 14. ✅ Placeholders `TU-DOMINIO.vercel.app` reemplazados en todos los archivos
 15. ✅ Cuenta Ko-fi creada y conectada a PayPal: https://ko-fi.com/devmenthor — `TU_USUARIO` reemplazado en todos los botones
-16. ⏳ Pendiente (opcional): conversor de unidades todo-en-uno, si se confirma como prioridad
-17. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
+16. ✅ Página de política de privacidad (`/privacidad/`) + link en footer de todas las páginas + slots de AdSense reservados (inactivos) — ver sección "Google AdSense" arriba
+17. ⏳ Pendiente (opcional): conversor de unidades todo-en-uno, si se confirma como prioridad
+18. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
+19. ⏳ Pendiente (futuro, requiere tráfico real primero): postular a Google AdSense, activar client ID real
 
 ---
 

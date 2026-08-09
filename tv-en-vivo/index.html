@@ -30,6 +30,10 @@
 
 <meta name="theme-color" content="#0F1B2B">
 
+<!-- AdSense (pendiente de aprobación):
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
 <script type="application/ld+json" id="schema-app">
 {
   "@context": "https://schema.org",
@@ -204,6 +208,10 @@
   }
   .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
   .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:20px; max-width:600px; margin-left:auto; margin-right:auto;}
+  .footnote a{color:var(--ink-faint); text-decoration:underline; text-underline-offset:2px;}
+  .footnote a:hover{color:var(--gold);}
+
+  .ad-slot{display:none;}
 
   :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
 
@@ -228,6 +236,9 @@
     <h1 data-i18n-html="title">Canales oficiales <em>en vivo</em>,<br>gratis y legal</h1>
     <p class="sub" data-i18n="subtitle">Noticias y contenido de servicio público, transmitidos directo desde el canal oficial de YouTube de cada emisora.</p>
   </header>
+
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-top" aria-hidden="true"></div>
 
   <main>
   <section class="panel player-panel" aria-label="Reproductor">
@@ -273,10 +284,14 @@
   </section>
   </main>
 
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-bottom" aria-hidden="true"></div>
+
   <footer>
     <p class="cta" data-i18n="cta_text">¿Te sirvió esta herramienta? Si te ahorró tiempo, invítame un café.</p>
     <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
     <p class="footnote" data-i18n="disclaimer">Todos los canales son transmisiones oficiales gratuitas de sus dueños vía YouTube Live embed. Este sitio no aloja ni redistribuye contenido con copyright.</p>
+    <p class="footnote"><a href="/privacidad/" data-i18n="privacy_link">Política de privacidad</a></p>
   </footer>
 
 </div>
@@ -340,6 +355,7 @@
       cta_text: "¿Te sirvió esta herramienta? Si te ahorró tiempo, invítame un café.",
       cta_btn: "Invítame un café",
       disclaimer: "Todos los canales son transmisiones oficiales gratuitas de sus dueños vía YouTube Live embed. Este sitio no aloja ni redistribuye contenido con copyright.",
+      privacy_link: "Política de privacidad",
       docTitle: "TV en Vivo Gratis — Canales Oficiales de Noticias | 2026",
       docDesc: "Mira TV en vivo gratis: NASA TV, France 24, DW News y más, vía el canal oficial de YouTube Live de cada emisora. 100% legal, sin registro.",
       titleHtml: "Canales oficiales <em>en vivo</em>,<br>gratis y legal",
@@ -368,6 +384,7 @@
       cta_text: "Did this tool help you? If it saved you time, buy me a coffee.",
       cta_btn: "Buy me a coffee",
       disclaimer: "All channels are official free broadcasts from their owners via YouTube Live embed. This site does not host or redistribute copyrighted content.",
+      privacy_link: "Privacy policy",
       docTitle: "Free Live TV — Official News Channels | 2026",
       docDesc: "Watch free live TV: NASA TV, France 24, DW News and more, via each broadcaster's official YouTube Live channel. 100% legal, no sign-up.",
       titleHtml: "Official channels <em>live</em>,<br>free and legal",

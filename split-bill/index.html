@@ -30,6 +30,10 @@
 
 <meta name="theme-color" content="#0F1B2B">
 
+<!-- AdSense (pendiente de aprobación):
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
 <script type="application/ld+json" id="schema-app">
 {
   "@context": "https://schema.org",
@@ -242,6 +246,10 @@
   .coffee-btn{display:inline-flex; align-items:center; gap:8px; background:var(--gold); color:var(--ink); font-weight:600; font-size:14px; padding:14px 26px; border-radius:3px; text-decoration:none; transition:transform 0.15s ease, box-shadow 0.15s ease; min-height:44px;}
   .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
   .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:20px;}
+  .footnote a{color:var(--ink-faint); text-decoration:underline; text-underline-offset:2px;}
+  .footnote a:hover{color:var(--gold);}
+
+  .ad-slot{display:none;}
 
   :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
   @media (prefers-reduced-motion:reduce){
@@ -273,6 +281,9 @@
     <h1 data-i18n-html="title">Divide la <em>cuenta</em><br>sin hacer cuentas</h1>
     <p class="sub" data-i18n="subtitle">Pon el total, cuántos son y la propina — mira al instante cuánto le toca pagar a cada quien.</p>
   </header>
+
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-top" aria-hidden="true"></div>
 
   <main>
   <div class="grid">
@@ -341,10 +352,14 @@
   </section>
   </main>
 
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-bottom" aria-hidden="true"></div>
+
   <footer>
     <p class="cta" data-i18n="cta_text">¿Te sirvió esta calculadora? Si te evitó una discusión sobre quién debe qué, invítame un café.</p>
     <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
     <p class="footnote" data-i18n="disclaimer">Herramienta educativa de uso general. Los redondeos pueden variar según tu moneda local.</p>
+    <p class="footnote"><a href="/privacidad/" data-i18n="privacy_link">Política de privacidad</a></p>
   </footer>
 
 </div>
@@ -373,6 +388,7 @@
       cta_text: "¿Te sirvió esta calculadora? Si te evitó una discusión sobre quién debe qué, invítame un café.",
       cta_btn: "Invítame un café",
       disclaimer: "Herramienta educativa de uso general. Los redondeos pueden variar según tu moneda local.",
+      privacy_link: "Política de privacidad",
       person_prefix: "P",
       docTitle: "Calculadora para Dividir la Cuenta Gratis — Split Bill | 2026",
       docDesc: "Divide una cuenta entre varias personas con propina incluida, gratis. Calcula cuánto paga cada quien al instante. Sin registro.",
@@ -402,6 +418,7 @@
       cta_text: "Did this calculator help you? If it saved you an argument about who owes what, buy me a coffee.",
       cta_btn: "Buy me a coffee",
       disclaimer: "General-use educational tool. Rounding may vary depending on your local currency.",
+      privacy_link: "Privacy policy",
       person_prefix: "P",
       docTitle: "Free Split Bill Calculator — Divide the Check | 2026",
       docDesc: "Split a bill between several people with tip included, for free. Instantly calculate how much each person owes. No sign-up.",

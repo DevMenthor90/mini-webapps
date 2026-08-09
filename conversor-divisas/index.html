@@ -30,6 +30,10 @@
 
 <meta name="theme-color" content="#0F1B2B">
 
+<!-- AdSense (pendiente de aprobación):
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
 <script type="application/ld+json" id="schema-app">
 {
   "@context": "https://schema.org",
@@ -253,6 +257,10 @@
   }
   .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
   .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:20px;}
+  .footnote a{color:var(--ink-faint); text-decoration:underline; text-underline-offset:2px;}
+  .footnote a:hover{color:var(--gold);}
+
+  .ad-slot{display:none;}
 
   :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
   @media (prefers-reduced-motion:reduce){
@@ -286,6 +294,9 @@
     <h1 data-i18n-html="title">Convierte tu dinero <em>al instante</em></h1>
     <p class="sub" data-i18n="subtitle">Tipo de cambio actualizado, con más de 160 monedas incluyendo el peso colombiano. Sin registro.</p>
   </header>
+
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-top" aria-hidden="true"></div>
 
   <main>
   <div class="grid">
@@ -354,10 +365,14 @@
   </section>
   </main>
 
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-bottom" aria-hidden="true"></div>
+
   <footer>
     <p class="cta" data-i18n="cta_text">¿Te sirvió esta herramienta? Si te ahorró tiempo, invítame un café.</p>
     <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
     <p class="footnote" data-i18n="disclaimer">Tasas de referencia con fines informativos. No reflejan comisiones de bancos o casas de cambio. No constituye asesoría financiera.</p>
+    <p class="footnote"><a href="/privacidad/" data-i18n="privacy_link">Política de privacidad</a></p>
   </footer>
 
 </div>
@@ -390,6 +405,7 @@
       cta_text: "¿Te sirvió esta herramienta? Si te ahorró tiempo, invítame un café.",
       cta_btn: "Invítame un café",
       disclaimer: "Tasas de referencia con fines informativos. No reflejan comisiones de bancos o casas de cambio. No constituye asesoría financiera.",
+      privacy_link: "Política de privacidad",
       docTitle: "Conversor de Divisas Gratis — Tipo de Cambio Actual | 2026",
       docDesc: "Convierte entre monedas con el tipo de cambio actual, incluyendo peso colombiano y monedas de toda Latinoamérica. Rápido, gratis y sin registro.",
       titleHtml: "Convierte tu dinero <em>al instante</em>",
@@ -421,6 +437,7 @@
       cta_text: "Did this tool help you? If it saved you time, buy me a coffee.",
       cta_btn: "Buy me a coffee",
       disclaimer: "Reference rates for informational purposes only. Does not reflect bank or exchange house fees. Not financial advice.",
+      privacy_link: "Privacy policy",
       docTitle: "Free Currency Converter — Current Exchange Rate | 2026",
       docDesc: "Convert between currencies with the current exchange rate, including Colombian peso and Latin American currencies. Fast, free, no sign-up.",
       titleHtml: "Convert your money <em>instantly</em>",

@@ -30,6 +30,10 @@
 
 <meta name="theme-color" content="#0F1B2B">
 
+<!-- AdSense (pendiente de aprobación):
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+
 <script type="application/ld+json" id="schema-app">
 {
   "@context": "https://schema.org",
@@ -339,6 +343,10 @@
   }
   .coffee-btn:hover{transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,169,97,0.25);}
   .footnote{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:20px;}
+  .footnote a{color:var(--ink-faint); text-decoration:underline; text-underline-offset:2px;}
+  .footnote a:hover{color:var(--gold);}
+
+  .ad-slot{display:none;}
 
   :focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
   @media (prefers-reduced-motion:reduce){
@@ -370,6 +378,9 @@
     <h1 data-i18n-html="title">Conoce tu <em>IMC</em><br>y tu gasto calórico diario</h1>
     <p class="sub" data-i18n="subtitle">Calcula tu índice de masa corporal y cuántas calorías necesitas al día según tu nivel de actividad.</p>
   </header>
+
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-top" aria-hidden="true"></div>
 
   <main>
   <div class="grid">
@@ -467,10 +478,14 @@
   </section>
   </main>
 
+  <!-- AdSense slot: activar cuando se apruebe la cuenta -->
+  <div class="ad-slot ad-slot-bottom" aria-hidden="true"></div>
+
   <footer>
     <p class="cta" data-i18n="cta_text">¿Te sirvió esta calculadora? Si te ahorró tiempo, invítame un café.</p>
     <a href="https://ko-fi.com/devmenthor" target="_blank" rel="noopener" class="coffee-btn">☕ <span data-i18n="cta_btn">Invítame un café</span></a>
     <p class="footnote" data-i18n="disclaimer">Herramienta educativa. No constituye asesoría médica ni nutricional. Consulta a un profesional de la salud.</p>
+    <p class="footnote"><a href="/privacidad/" data-i18n="privacy_link">Política de privacidad</a></p>
   </footer>
 
 </div>
@@ -513,6 +528,7 @@
       cta_text: "¿Te sirvió esta calculadora? Si te ahorró tiempo, invítame un café.",
       cta_btn: "Invítame un café",
       disclaimer: "Herramienta educativa. No constituye asesoría médica ni nutricional. Consulta a un profesional de la salud.",
+      privacy_link: "Política de privacidad",
       docTitle: "Calculadora de IMC y Calorías (TDEE) Gratis | 2026",
       docDesc: "Calcula tu IMC y tu gasto calórico diario (TDEE) gratis. Fórmula Mifflin-St Jeor, clasificación de peso y nivel de actividad. Sin registro.",
       titleHtml: "Conoce tu <em>IMC</em><br>y tu gasto calórico diario",
@@ -555,6 +571,7 @@
       cta_text: "Did this calculator help you? If it saved you time, buy me a coffee.",
       cta_btn: "Buy me a coffee",
       disclaimer: "Educational tool. Not medical or nutritional advice. Consult a healthcare professional.",
+      privacy_link: "Privacy policy",
       docTitle: "Free BMI and Calorie (TDEE) Calculator | 2026",
       docDesc: "Calculate your BMI and daily calorie needs (TDEE) for free. Mifflin-St Jeor formula, weight classification, activity level. No sign-up.",
       titleHtml: "Know your <em>BMI</em><br>and daily calorie needs",
