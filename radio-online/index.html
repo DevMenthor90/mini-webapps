@@ -131,8 +131,8 @@
   .now-playing{display:flex; align-items:center; gap:14px; flex-wrap:wrap;}
   .np-favicon{width:44px; height:44px; border-radius:4px; object-fit:cover; background:rgba(245,239,227,0.08); flex-shrink:0;}
   .np-icon-fallback{width:44px; height:44px; border-radius:4px; background:rgba(245,239,227,0.08); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0;}
-  .np-info{flex:1; min-width:140px;}
-  .np-name{font-family:'Fraunces',serif; font-weight:600; font-size:16px; color:var(--gold);}
+  .np-info{flex:1; min-width:0;}
+  .np-name{font-family:'Fraunces',serif; font-weight:600; font-size:16px; color:var(--gold); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
   .np-meta{font-family:'Space Mono',monospace; font-size:11px; color:var(--ink-faint); margin-top:2px;}
 
   /* ---- Equalizer ---- */
@@ -187,7 +187,7 @@
     background:rgba(245,239,227,0.04); border:1px solid rgba(245,239,227,0.1);
     border-radius:4px; padding:12px; cursor:pointer; text-align:left;
     color:var(--paper); font-family:inherit; transition:border-color 0.15s ease;
-    min-height:64px;
+    min-height:64px; min-width:0; width:100%;
   }
   .station-card:hover{border-color:var(--gold);}
   .station-card.playing{border-color:var(--sage); background:rgba(74,124,110,0.12);}
@@ -521,10 +521,13 @@
     return d.innerHTML;
   }
 
+  let playToken = 0;
+
   function playStation(station, cardEl){
     document.querySelectorAll('.station-card.playing').forEach(el => el.classList.remove('playing'));
     if (cardEl) cardEl.classList.add('playing');
     currentStation = station;
+    const token = ++playToken;
 
     nowPlaying.style.display = 'flex';
     npName.textContent = station.name;
@@ -542,13 +545,15 @@
     }
 
     setPlayerStatus('', false);
+    equalizer.classList.remove('paused');
     player.src = station.url_resolved || station.url;
     player.play().catch(() => {
-      setPlayerStatus(translations[currentLang].play_error, true);
+      if (token === playToken) setPlayerStatus(translations[currentLang].play_error, true);
     });
   }
 
   player.addEventListener('error', () => {
+    if (playToken === 0) return;
     setPlayerStatus(translations[currentLang].play_error, true);
     equalizer.classList.add('paused');
   });
