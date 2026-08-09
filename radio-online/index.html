@@ -475,6 +475,7 @@
       const res = await fetch(url);
       if (!res.ok) throw new Error('bad status');
       const data = await res.json();
+      data.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
       stationsCache[country] = data;
       renderStations(data);
       setStationsStatus(data.length ? '' : translations[currentLang].no_stations, false, false);
