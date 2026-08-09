@@ -165,10 +165,10 @@ en español e inglés — no hay un sistema compartido entre páginas todavía (
 5. ✅ Repo en GitHub: https://github.com/DevMenthor90/mini-webapps
 6. ✅ Desplegado en Vercel: https://mini-webapps-six.vercel.app (auto-deploy conectado al repo)
 7. ✅ Placeholders `TU-DOMINIO.vercel.app` reemplazados en todos los archivos
-8. ⏳ Pendiente: construir calculadora de IMC/calorías (siguiente en la fila)
-9. ⏳ Pendiente: construir calculadora de préstamo
-10. ⏳ Pendiente: construir split bill
-11. ⏳ Pendiente: crear cuenta Ko-fi y reemplazar `TU_USUARIO` en todos los botones
+8. ✅ Cuenta Ko-fi creada y conectada a PayPal: https://ko-fi.com/devmenthor — `TU_USUARIO` reemplazado en todos los botones
+9. ⏳ Pendiente: construir calculadora de IMC/calorías (siguiente en la fila)
+10. ⏳ Pendiente: construir calculadora de préstamo
+11. ⏳ Pendiente: construir split bill
 12. ⏳ Pendiente (opcional): dominio propio si el proyecto gana tracción
 
 ---
